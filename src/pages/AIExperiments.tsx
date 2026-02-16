@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import OnboardingAssistant from '../components/ai-experiments/OnboardingAssistant'
-import FeaturePrioritization from '../components/ai-experiments/FeaturePrioritization'
-import ScenarioPicker from '../components/ai-experiments/ScenarioPicker'
-import ProductIdeaGenerator from '../components/ai-experiments/ProductIdeaGenerator'
+import OnboardingAssistant from '@/components/ai-experiments/OnboardingAssistant'
+import FeaturePrioritization from '@/components/ai-experiments/FeaturePrioritization'
+import ScenarioPicker from '@/components/ai-experiments/ScenarioPicker'
+import ProductIdeaGenerator from '@/components/ai-experiments/ProductIdeaGenerator'
 
 export default function AIExperiments() {
   return (
