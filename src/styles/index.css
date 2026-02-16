@@ -6,6 +6,9 @@
   * {
     @apply border-slate-700;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-dark text-light font-sans antialiased;
   }

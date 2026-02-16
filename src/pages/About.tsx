@@ -26,7 +26,7 @@ export default function About() {
             <img
               src="/assets/madan-photo.jpg"
               alt={profile.name}
-              className="w-full aspect-square object-cover rounded-2xl border-4 border-primary/20"
+              className="w-full aspect-square object-cover object-[center_25%] rounded-2xl border-4 border-primary/20"
             />
           </motion.div>
           <motion.div

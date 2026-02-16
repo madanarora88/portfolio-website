@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Header from './Header'
@@ -11,6 +12,11 @@ const pageVariants = {
 
 export default function Layout() {
   const location = useLocation()
+
+  // Scroll to top when the route changes so every page loads from the top
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   return (
     <div className="min-h-screen bg-dark text-light flex flex-col">
