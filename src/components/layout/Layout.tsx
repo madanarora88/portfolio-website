@@ -15,7 +15,10 @@ export default function Layout() {
 
   // Scroll to top when the route changes so every page loads from the top
   useEffect(() => {
-    window.scrollTo(0, 0)
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [location.pathname])
 
   return (

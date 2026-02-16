@@ -67,9 +67,13 @@ export default function OnboardingAssistant() {
   const bottomRef = useRef<HTMLDivElement>(null)
   const rateLimitRef = useRef({ count: 0, resetAt: 0 })
 
+  // Only scroll to bottom when user sends a new message—not on initial load (which would scroll the page away from top)
+  const hasUserMessage = messages.some((m) => m.role === 'user')
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
+    if (hasUserMessage) {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [messages, hasUserMessage])
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || isTyping) return
