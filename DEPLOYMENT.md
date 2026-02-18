@@ -59,7 +59,9 @@ To enable live OpenAI responses in the "AI Onboarding Assistant" chat:
 
 If not set, the chat uses pre-written demo responses.
 
-For analytics (optional):
+**Vercel Analytics** is already integrated – view metrics in Vercel Dashboard → Project → Analytics.
+
+For Google Analytics (optional):
 ```
 VITE_GA_ID=your-google-analytics-id
 ```
@@ -78,20 +80,16 @@ VITE_GA_ID=your-google-analytics-id
 
 ## Performance Optimization
 
-The build is already optimized, but you can further improve:
+The following optimizations are already in place:
 
-1. **Image Optimization**
-- Convert images to WebP
-- Use responsive images
-- Lazy load below-fold images
+1. **Font Loading** – Google Fonts load non-blocking (media="print" onload) to avoid blocking render
+2. **Images** – Hero image uses fetchpriority="high"; below-fold images use loading="lazy"; width/height set to prevent layout shift
+3. **Code Splitting** – All routes (Home, Case Studies, About, Writing, Speaking, Contact, AI Experiments, Simulator) use React.lazy()
+4. **Vercel Analytics** – Enabled via @vercel/analytics for performance insights
 
-2. **Code Splitting**
-- Already configured with React.lazy()
-- Vite handles this automatically
-
-3. **Caching**
-- Vercel/Netlify handle this by default
-- Set custom headers if needed
+### Further improvements (optional)
+- Convert photos to WebP for smaller file sizes
+- Use vite-plugin-lucide or per-icon imports if lucide-react bundle grows (lucide is already tree-shakeable)
 
 ## Troubleshooting
 
@@ -110,10 +108,9 @@ The build is already optimized, but you can further improve:
 
 ## Monitoring
 
-Add analytics:
-- Google Analytics
-- Vercel Analytics
-- Plausible (privacy-friendly)
+- **Vercel Analytics** – Enabled by default; view in Vercel Dashboard → Analytics
+- Edge Network and compression are enabled by default on Vercel
+- Optional: Google Analytics, Plausible (privacy-friendly)
 
 ---
 

@@ -31,6 +31,9 @@ const Home = () => {
             <img
               src="/assets/madan-photo.jpg"
               alt={profile.name}
+              width={224}
+              height={224}
+              fetchPriority="high"
               className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full mx-auto mb-6 border-4 border-primary/20 object-cover object-[center_25%]"
             />
           </motion.div>
@@ -351,6 +354,9 @@ const Home = () => {
                       <img
                         src={designGallery.images[galleryIndex]}
                         alt={`Design ${galleryIndex + 1}`}
+                        width={800}
+                        height={600}
+                        loading="lazy"
                         className="max-h-full max-w-full object-contain rounded-lg"
                       />
                     </div>

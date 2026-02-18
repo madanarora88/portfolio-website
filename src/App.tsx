@@ -1,17 +1,18 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import Home from './pages/Home'
 import CaseStudies from './pages/CaseStudies'
-import About from './pages/About'
-import Writing from './pages/Writing'
-import Speaking from './pages/Speaking'
-import Contact from './pages/Contact'
 import Layout from './components/layout/Layout'
 import CommandPalette from './components/layout/CommandPalette'
 
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudyDetail'))
 const AIExperiments = lazy(() => import('./pages/AIExperiments'))
 const Simulator = lazy(() => import('./pages/Simulator'))
+const About = lazy(() => import('./pages/About'))
+const Writing = lazy(() => import('./pages/Writing'))
+const Speaking = lazy(() => import('./pages/Speaking'))
+const Contact = lazy(() => import('./pages/Contact'))
 
 function App() {
   return (
@@ -44,13 +45,42 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="/about" element={<About />} />
-          <Route path="/writing" element={<Writing />} />
-          <Route path="/speaking" element={<Speaking />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <About />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/writing"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Writing />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/speaking"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Speaking />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Contact />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
       <CommandPalette />
+      <Analytics />
     </Router>
   )
 }

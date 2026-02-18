@@ -26,6 +26,9 @@ export default function About() {
             <img
               src="/assets/madan-photo.jpg"
               alt={profile.name}
+              width={400}
+              height={400}
+              loading="lazy"
               className="w-full aspect-square object-cover object-[center_25%] rounded-2xl border-4 border-primary/20"
             />
           </motion.div>
