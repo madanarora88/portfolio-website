@@ -1,5 +1,5 @@
 /**
- * Serverless chat API for AI Experiments (CommonJS for Vercel).
+ * Serverless chat API for AI Experiments (Vercel).
  * Set OPENAI_API_KEY in Vercel project Environment Variables for live AI.
  */
 
@@ -12,7 +12,7 @@ function cors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   cors(res)
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
@@ -37,7 +37,7 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const OpenAI = (await import('openai')).default
+    const { default: OpenAI } = await import('openai')
     const openai = new OpenAI({ apiKey })
 
     const messages = [
