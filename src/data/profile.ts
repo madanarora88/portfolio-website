@@ -2,7 +2,7 @@ export const profile = {
   name: "Madan Arora",
   title: "AI Product Manager",
   tagline: "I design AI products that feel like magic",
-  bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 2M+ users. Known for exceptional product sense, AI transformation expertise, and driving $100M+ in revenue impact.",
+  bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 2M+ users. Known for exceptional product sense, AI transformation expertise, and driving $50M+ in revenue impact.",
   
   contact: {
     email: "aroramadan88@gmail.com",

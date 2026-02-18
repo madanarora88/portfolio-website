@@ -29,8 +29,8 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { label: "Daily Active Users", value: "2M+" },
       { label: "Adoption Rate", value: "80%+" },
-      { label: "Associates Impacted", value: "122K+ Supply Chain Associates and 2M+ store associates" },
-      { label: "Annual Savings", value: "$15-20M per store and $5-10M per distribution center" }
+      { label: "Associates Impacted", value: "122K+ Supply Chain and 2M+ store associates" },
+      { label: "Annual Savings", value: "$15-20M per store and $5-10M per DC" }
     ],
     steps: [
       {
@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Outcome",
         subtitle: "The measurable impact",
-        content: "Achieved 1.2M+ DAU with 80%+ adoption rate in first year. Automated incentive payouts saving $15-20M per DC annually. Eliminated 500K+ manual HR hours. Improved associate satisfaction scores by 35%. Platform became blueprint for other Walmart internal apps."
+        content: "Achieved 2M+ DAU with 80%+ adoption rate in first year. Automated incentive payouts saving $15-20M per DC annually. Eliminated 500K+ manual HR hours. Improved associate satisfaction scores by 35%. Platform became blueprint for other Walmart internal apps."
       },
       {
         title: "Lessons",
