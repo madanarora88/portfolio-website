@@ -53,11 +53,15 @@ No environment variables needed for basic setup.
 
 ### Live AI on AI Experiments page (optional)
 To enable live OpenAI responses in the "AI Onboarding Assistant" chat:
-1. In Vercel: Project → Settings → Environment Variables
-2. Add `OPENAI_API_KEY` with your OpenAI API key
-3. Redeploy. The chat will use GPT-4o-mini (cost-effective). Rate limit: 15 requests/min per client.
+1. Get an API key from [platform.openai.com](https://platform.openai.com/api-keys)
+2. In Vercel: Project → Settings → Environment Variables
+3. Add `OPENAI_API_KEY` (exact name, case-sensitive) with your key
+4. Enable for **Production** (and Preview if desired)
+5. **Redeploy** – Deployments → ⋯ on latest → Redeploy (or push a new commit)
 
-If not set, the chat uses pre-written demo responses.
+The chat uses GPT-4o-mini (cost-effective). Rate limit: 15 requests/min per client.
+
+**If you still get pre-written responses:** Check the browser Network tab (F12) for `/api/chat` – if the response has `useMock: true`, the API key isn't being read (verify env var name and redeploy).
 
 **Vercel Analytics** is already integrated – view metrics in Vercel Dashboard → Project → Analytics.
 
