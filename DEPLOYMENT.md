@@ -61,10 +61,11 @@ If not set, the chat uses pre-written demo responses.
 
 **Vercel Analytics** is already integrated – view metrics in Vercel Dashboard → Project → Analytics.
 
-For Google Analytics (optional):
-```
-VITE_GA_ID=your-google-analytics-id
-```
+**Google Analytics (GA4):** To enable visitor tracking:
+1. Create a GA4 property at [analytics.google.com](https://analytics.google.com)
+2. Copy your Measurement ID (e.g. `G-XXXXXXXXXX`)
+3. In Vercel: Project → Settings → Environment Variables → Add `VITE_GA_ID` with your Measurement ID
+4. Redeploy. Page views are tracked automatically on route changes.
 
 ## Custom Domain
 
