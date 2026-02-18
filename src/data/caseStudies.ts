@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { label: "Daily Active Users", value: "2M+" },
       { label: "Adoption Rate", value: "80%+" },
-      { label: "Associates Impacted", value: "122K+ Supply Chain and 2M+ store associates" },
+      { label: "Associates Impacted", value: "122K+ SC and 2M+ store associates" },
       { label: "Annual Savings", value: "$15-20M per store and $5-10M per DC" }
     ],
     steps: [
