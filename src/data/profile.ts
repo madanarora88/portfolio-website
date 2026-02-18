@@ -2,7 +2,7 @@ export const profile = {
   name: "Madan Arora",
   title: "AI Product Manager",
   tagline: "I design AI products that feel like magic",
-  bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 1M+ users. Known for exceptional product sense, AI transformation expertise, and driving $100M+ in revenue impact.",
+  bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 2M+ users. Known for exceptional product sense, AI transformation expertise, and driving $100M+ in revenue impact.",
   
   contact: {
     email: "aroramadan88@gmail.com",
@@ -34,7 +34,7 @@ export const profile = {
   ],
 
   whyHireMe: [
-    "Exceptional product sense—shipped products that 1.2M+ users adopt daily",
+    "Exceptional product sense—shipped products that 2M+ users adopt daily",
     "0→1 expertise—built products from idea to scale at Fortune 50 companies",
     "AI product intuition—turn frontier AI into products people love",
     "Proven impact—$100M+ revenue, $20M+ savings, 80%+ adoption rates",
@@ -92,7 +92,7 @@ export const profile = {
     {
       title: "Product sense beats technical skills",
       description: "Deep empathy for users, sharp problem framing, and instinctive prioritization drive better outcomes than just technical expertise.",
-      example: "Achieved 80%+ adoption rate on 1.2M DAU app through product sense, not just engineering."
+      example: "Achieved 80%+ adoption rate on 2M+ DAU app through product sense, not just engineering."
     },
     {
       title: "AI amplifies intent, not replaces it",
@@ -128,7 +128,7 @@ export const experience = [
     location: "Bentonville, AR",
     description: "Led end-to-end development of Me@Walmart Supply Chain mobile app",
     achievements: [
-      "Built product serving 1.2M+ Daily Active Users with 80%+ adoption rate",
+      "Built mobile product serving 2M+ Daily Active Users with 80%+ adoption rate",
       "Architected Labor Management tool saving $15-20M per DC annually",
       "Reduced hiring time from 2 weeks to 24 hours (50% drop-off reduction)",
       "Achieved 90% offer acceptance rate within 24 hours"
