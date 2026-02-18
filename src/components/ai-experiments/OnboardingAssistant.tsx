@@ -64,14 +64,17 @@ export default function OnboardingAssistant() {
   const [isTyping, setIsTyping] = useState(false)
   const [rateLimitHit, setRateLimitHit] = useState(false)
   const [usedFallback, setUsedFallback] = useState(false)
-  const bottomRef = useRef<HTMLDivElement>(null)
+  const chatContainerRef = useRef<HTMLDivElement>(null)
   const rateLimitRef = useRef({ count: 0, resetAt: 0 })
 
-  // Only scroll to bottom when user sends a new message—not on initial load (which would scroll the page away from top)
+  // Scroll within the chat window only—not the page—when new messages arrive
   const hasUserMessage = messages.some((m) => m.role === 'user')
   useEffect(() => {
-    if (hasUserMessage) {
-      bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (hasUserMessage && chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      })
     }
   }, [messages, hasUserMessage])
 
@@ -172,7 +175,7 @@ export default function OnboardingAssistant() {
       </div>
 
       <div className="rounded-xl border border-light/10 bg-light/5 overflow-hidden">
-        <div className="h-96 overflow-y-auto p-4 space-y-6">
+        <div ref={chatContainerRef} className="h-96 overflow-y-auto p-4 space-y-6">
           <AnimatePresence>
             {messages.map((msg) => (
               <motion.div
@@ -225,7 +228,6 @@ export default function OnboardingAssistant() {
               </div>
             </motion.div>
           )}
-          <div ref={bottomRef} />
         </div>
         <form onSubmit={handleSubmit} className="p-4 border-t border-light/10">
           <div className="flex gap-3">
