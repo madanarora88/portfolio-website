@@ -19,8 +19,8 @@ export const profile = {
   
   stats: {
     yearsExperience: "13+",
-    dailyActiveUsers: "1M+",
-    revenueImpact: "$100M+",
+    dailyActiveUsers: "2M+",
+    revenueImpact: "$50M+",
     costSavings: "$20M+",
     fortune50Companies: 4,
   },

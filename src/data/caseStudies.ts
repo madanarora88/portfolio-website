@@ -24,13 +24,13 @@ export const caseStudies: CaseStudy[] = [
     company: "Walmart",
     role: "Principal Product Manager",
     timeline: "2022-2025",
-    summary: "Led end-to-end development of mobile app serving 1.2M+ Daily Active Users, achieving 80%+ adoption rate among 122K+ supply chain associates.",
+    summary: "Led end-to-end development of mobile app serving 2M+ Daily Active Users, achieving 80%+ adoption rate among 122K+ supply chain associates.",
     tags: ["AI/ML", "Mobile", "Scale", "Employee Experience"],
     metrics: [
-      { label: "Daily Active Users", value: "1.2M+" },
+      { label: "Daily Active Users", value: "2M+" },
       { label: "Adoption Rate", value: "80%+" },
-      { label: "Associates Impacted", value: "122K+" },
-      { label: "Annual Savings", value: "$15-20M per DC" }
+      { label: "Associates Impacted", value: "122K+ Supply Chain Associates and 2M+ store associates" },
+      { label: "Annual Savings", value: "$15-20M per store and $5-10M per distribution center" }
     ],
     steps: [
       {
