@@ -41,6 +41,9 @@ export default function About() {
             <h2 className="text-2xl font-bold mb-4">{profile.name}</h2>
             <p className="text-primary font-medium mb-4">{profile.title}</p>
             <p className="text-light/80 mb-6 leading-relaxed">{profile.bio}</p>
+            {profile.education && (
+              <p className="text-light/60 text-sm mb-4">{profile.education}</p>
+            )}
             <div className="flex flex-wrap gap-4">
               {profile.links.tedTalk && (
                 <a
@@ -65,6 +68,27 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+
+        {profile.certifications && profile.certifications.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl font-bold mb-6">Certifications</h2>
+            <ul className="space-y-2">
+              {profile.certifications.map((cert, i) => (
+                <li key={i} className="flex flex-wrap gap-2 text-light/80">
+                  <span className="font-medium text-light">{cert.name}</span>
+                  {cert.issuer && (
+                    <span className="text-light/50 text-sm">— {cert.issuer}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
 
         <motion.div
           initial={{ opacity: 0 }}

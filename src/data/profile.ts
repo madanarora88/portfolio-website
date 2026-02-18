@@ -83,6 +83,59 @@ export const profile = {
     { title: "Product-Led Growth Engine", desc: "Activation, retention, and expansion strategies" },
   ],
 
+  education: "B.S. Operations & Information Systems, Northern Illinois University, 2011",
+
+  certifications: [
+    { name: "World-class Product Sense in Practice", issuer: "Maven (Shreyas Doshi)" },
+    { name: "AI Product Management", issuer: "Maven & Product Faculty (OpenAI, Cursor, Anthropic)" },
+    { name: "AI 900 Azure AI Fundamentals", issuer: "Microsoft" },
+    { name: "AZ-900 Azure Fundamentals", issuer: "Microsoft" },
+    { name: "AWS Certified Cloud Practitioner (CLF-C01)", issuer: "AWS" },
+    { name: "SAFe SPC 5.1, SA, CSM, CSPO, ICP-ACC, ATF", issuer: "Agile & Scrum" },
+  ],
+
+  heroStories: [
+    {
+      title: "Ask Sam",
+      tagline: "Voice GenAI for 4,600+ stores",
+      situation: "Store associates spent 15–20% of their shift searching for product locations and policy details.",
+      results: [
+        "Led cross-functional team to build voice-enabled GenAI assistant in Me@Walmart",
+        "Implemented RAG to ground responses in real-time inventory; added feedback loops for continuous improvement",
+        "Reduced query resolution from 5 minutes to 45 seconds with 97% accuracy",
+      ],
+      metrics: "82% weekly active usage among associates across 4,600+ stores",
+    },
+    {
+      title: "Scheduling bias fix",
+      tagline: "Responsible AI in workforce tools",
+      situation: "ML-powered scheduling was favoring full-time over part-time workers for premium shifts.",
+      results: [
+        "Ran fairness audits with SHAP values; partnered with Responsible AI on counterfactual fairness checks",
+        "Added transparency so associates see the 'why' behind shift recommendations",
+        "Established continuous monitoring with demographic parity metrics in production",
+      ],
+      metrics: "73% reduction in scheduling bias; 98% shift acceptance; internal innovation award",
+    },
+    {
+      title: "AI hiring tool",
+      tagline: "Eval-first AI that managers trust",
+      situation: "Time-to-offer was over 2 weeks; candidates dropped off and managers couldn't fill roles fast enough.",
+      results: [
+        "Built AI/ML tool for top-candidate recommendations and streamlined hiring process",
+        "Defined three eval layers: model performance, user behavior (override rates), and business outcomes",
+        "Iterated weekly on signals so the product earned manager trust, not just good model metrics",
+      ],
+      metrics: "Time-to-offer 2 weeks → 24 hours; 50% drop-off reduction; 90% offer acceptance in 24h; manager trust 45% → 87%",
+    },
+  ],
+
+  howIPrioritize: [
+    "Value vs. effort—I balance customer impact, business value, and effort so we ship what matters first.",
+    "Innovation vs. stability—I allocate most work to core reliability, some to improvements, and a slice to bold bets.",
+    "Eval-first for AI—model metrics alone aren't enough; I track user behavior and business outcomes so AI earns trust.",
+  ],
+
   productPrinciples: [
     {
       title: "Start with user pain, not technology",
@@ -129,9 +182,9 @@ export const experience = [
     description: "Led end-to-end development of Me@Walmart Supply Chain mobile app",
     achievements: [
       "Built mobile product serving 2M+ Daily Active Users with 80%+ adoption rate",
-      "Architected Labor Management tool saving $15-20M per DC annually",
-      "Reduced hiring time from 2 weeks to 24 hours (50% drop-off reduction)",
-      "Achieved 90% offer acceptance rate within 24 hours"
+      "Led Ask Sam—voice-enabled GenAI assistant across 4,600+ stores; query resolution 5 min → 45 sec, 97% accuracy",
+      "Architected Labor Management tool saving $15-20M per DC annually; 500K+ manual hours eliminated",
+      "Reduced hiring time from 2 weeks to 24 hours with AI-powered hiring tool (50% drop-off reduction, 90% offer acceptance in 24h)",
     ],
     impact: "$15-20M annual savings, 500K+ manual hours eliminated"
   },

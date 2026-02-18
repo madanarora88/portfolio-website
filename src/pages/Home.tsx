@@ -173,6 +173,47 @@ const Home = () => {
         </section>
       )}
 
+      {/* Impact Stories */}
+      {profile.heroStories && profile.heroStories.length > 0 && (
+        <section className="py-24 px-6 bg-dark/50">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold mb-4">How I&apos;ve Shipped</h2>
+              <p className="text-light/70 text-lg max-w-2xl mx-auto">
+                Real impact from idea to launch
+              </p>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {profile.heroStories.map((story, i) => (
+                <motion.div
+                  key={story.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="p-6 rounded-xl bg-light/5 border border-light/10"
+                >
+                  <h3 className="text-xl font-bold mb-1">{story.title}</h3>
+                  <p className="text-primary text-sm font-medium mb-3">{story.tagline}</p>
+                  <p className="text-light/70 text-sm mb-4">{story.situation}</p>
+                  <ul className="space-y-1 mb-4 text-sm text-light/80 list-disc list-inside">
+                    {story.results.map((r, j) => (
+                      <li key={j}>{r}</li>
+                    ))}
+                  </ul>
+                  <p className="text-sm font-medium text-primary">{story.metrics}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Product Principles */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
@@ -193,6 +234,27 @@ const Home = () => {
               <PrincipleCard key={index} principle={principle} index={index} />
             ))}
           </div>
+
+          {profile.howIPrioritize && profile.howIPrioritize.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-16"
+            >
+              <h3 className="text-2xl font-bold mb-6 text-center">How I Prioritize</h3>
+              <ul className="space-y-4 max-w-3xl mx-auto">
+                {profile.howIPrioritize.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-light/80">
+                    <span className="shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm font-medium">
+                      {i + 1}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
         </div>
       </section>
 
