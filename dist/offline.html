@@ -7,121 +7,276 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0F172A;
-      color: #F8FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 20px;
     }
-    .container { max-width: 400px; text-align: center; }
-    .emoji { font-size: 48px; margin-bottom: 16px; }
-    h1 { font-size: 1.5rem; color: #2E75B6; margin-bottom: 8px; }
-    p { color: rgba(248,250,252,0.7); margin-bottom: 24px; line-height: 1.5; font-size: 15px; }
-    .bug-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+    .container { max-width: 600px; text-align: center; }
+    .emoji {
+      font-size: 120px;
+      animation: float 3s ease-in-out infinite;
+      display: inline-block;
       margin-bottom: 20px;
     }
-    .bug-btn {
-      aspect-ratio: 1;
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    p {
+      font-size: 20px;
+      color: rgba(248, 250, 252, 0.7);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .game-container {
+      background: rgba(248, 250, 252, 0.05);
+      border: 2px solid rgba(248, 250, 252, 0.1);
       border-radius: 16px;
-      border: 2px solid rgba(248,82,82,0.5);
-      background: rgba(248,82,82,0.15);
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      transition: transform 0.2s, background 0.2s;
-      font-size: 11px;
-      color: rgba(248,250,252,0.9);
+      padding: 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
     }
-    .bug-btn:hover:not(.squashed) {
-      transform: scale(1.05);
-      background: rgba(248,82,82,0.25);
+    .game-container h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #f8fafc;
     }
-    .bug-btn:active:not(.squashed) { transform: scale(0.95); }
-    .bug-btn.squashed {
-      background: rgba(34,197,94,0.2);
-      border-color: rgba(34,197,94,0.5);
-      cursor: default;
-      opacity: 0.8;
+    .click-counter {
+      font-size: 72px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 20px 0;
     }
-    .bug-btn .icon { font-size: 28px; }
-    .links { display: none; }
-    .links.show {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 24px;
-      animation: fadeIn 0.4s ease;
-    }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .links a {
-      display: block;
-      padding: 14px 20px;
-      background: rgba(248,250,252,0.05);
-      border: 2px solid rgba(248,250,252,0.15);
-      border-radius: 12px;
-      color: #F8FAFC;
-      text-decoration: none;
+    button {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 18px;
       font-weight: 600;
-      transition: all 0.2s;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
     }
-    .links a:hover {
-      border-color: rgba(46,117,182,0.5);
-      background: rgba(46,117,182,0.15);
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
     }
-    .retry { margin-top: 16px; padding: 10px 20px; background: rgba(248,250,252,0.1); border: none; border-radius: 8px; color: #F8FAFC; cursor: pointer; font-size: 14px; }
-    .retry:hover { background: rgba(248,250,252,0.15); }
+    button:active { transform: scale(0.95); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .stat {
+      background: rgba(248, 250, 252, 0.05);
+      border: 1px solid rgba(248, 250, 252, 0.1);
+      border-radius: 12px;
+      padding: 20px 16px;
+    }
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(248, 250, 252, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .retry { margin-top: 32px; font-size: 14px; color: rgba(248, 250, 252, 0.5); }
+    .retry-btn {
+      background: rgba(248, 250, 252, 0.1);
+      margin-top: 12px;
+      box-shadow: none;
+    }
+    .retry-btn:hover { background: rgba(248, 250, 252, 0.15); }
+    .wifi-animation {
+      display: inline-block;
+      animation: pulse 2s ease-in-out infinite;
+      font-size: 32px;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+    }
+    .message {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 24px;
+      display: none;
+      animation: slideIn 0.5s ease;
+    }
+    .message.show { display: block; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: #3b82f6;
+      position: absolute;
+      animation: confetti-fall 3s linear;
+    }
+    @keyframes confetti-fall {
+      to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+    .online-notice {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
+      border: 2px solid rgba(16, 185, 129, 0.4);
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .online-notice h3 { color: #10b981; font-size: 24px; margin-bottom: 8px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="emoji">🐛</div>
-    <h1>You're offline — squash the bugs!</h1>
-    <p>Squash all 6 bugs to find your way back. (Your connection sprinted away.)</p>
-    <div class="bug-grid" id="grid">
-      <button class="bug-btn" data-id="0"><span class="icon">🐛</span><span>Scope creep</span></button>
-      <button class="bug-btn" data-id="1"><span class="icon">🐛</span><span>Deadline</span></button>
-      <button class="bug-btn" data-id="2"><span class="icon">🐛</span><span>Requirements</span></button>
-      <button class="bug-btn" data-id="3"><span class="icon">🐛</span><span>Stakeholder</span></button>
-      <button class="bug-btn" data-id="4"><span class="icon">🐛</span><span>Tech debt</span></button>
-      <button class="bug-btn" data-id="5"><span class="icon">🐛</span><span>Backlog</span></button>
+    <div class="emoji">📡</div>
+    <h1>You're Offline!</h1>
+    <p>Looks like you've lost connection. But don't worry—let's make this fun while you wait...</p>
+
+    <div class="game-container">
+      <h2>📊 Build Metrics While Offline</h2>
+      <p style="font-size: 16px; margin-bottom: 20px; color: rgba(248, 250, 252, 0.6);">
+        Every great product manager tracks metrics. Let's build yours!
+      </p>
+
+      <button id="clickBtn" onclick="incrementClicks()">🚀 Click to Generate DAU</button>
+
+      <div class="click-counter" id="counter">0</div>
+      <div style="color: rgba(248, 250, 252, 0.5); font-size: 14px;">Daily Active Clicks</div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value" id="growth">+0%</div>
+          <div class="stat-label">Growth</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="revenue">$0</div>
+          <div class="stat-label">ARR</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="impact">0x</div>
+          <div class="stat-label">Impact</div>
+        </div>
+      </div>
+
+      <div id="milestone" class="message"></div>
     </div>
-    <p id="count" class="text-sm" style="color: rgba(248,250,252,0.5);">0 / 6 squashed</p>
-    <div class="links" id="links">
-      <a href="/">🏠 Home</a>
-      <a href="/case-studies">💼 Case Studies</a>
-      <a href="/contact">✉️ Contact</a>
+
+    <div class="retry" id="retrySection">
+      <div class="wifi-animation">📶</div>
+      <div style="margin-top: 8px;">Checking connection...</div>
+      <button class="retry-btn" onclick="location.reload()">Try Again</button>
     </div>
-    <button class="retry" id="retry" onclick="location.reload()" style="display:none;">Try again</button>
   </div>
+
   <script>
-    var squashed = [];
-    var total = 6;
-    function squash(id) {
-      if (squashed.indexOf(id) !== -1) return;
-      squashed.push(id);
-      var btn = document.querySelector('[data-id="' + id + '"]');
-      btn.classList.add('squashed');
-      btn.innerHTML = '<span class="icon">✅</span><span>Squashed!</span>';
-      btn.onclick = null;
-      document.getElementById('count').textContent = squashed.length + ' / ' + total + ' squashed';
-      if (squashed.length === total) {
-        document.getElementById('count').style.display = 'none';
-        document.getElementById('links').classList.add('show');
-        document.getElementById('retry').style.display = 'inline-block';
+    var clicks = 0;
+
+    function createConfetti() {
+      var colors = ['#3b82f6', '#06b6d4', '#8b5cf6', '#ec4899'];
+      for (var i = 0; i < 30; i++) {
+        (function(idx) {
+          setTimeout(function() {
+            var confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+            document.body.appendChild(confetti);
+            setTimeout(function() { confetti.remove(); }, 3000);
+          }, idx * 50);
+        })(i);
       }
     }
-    document.querySelectorAll('.bug-btn').forEach(function(btn) {
-      btn.onclick = function() { squash(parseInt(btn.getAttribute('data-id'), 10)); };
+
+    function incrementClicks() {
+      clicks++;
+      document.getElementById('counter').textContent = clicks;
+
+      var growth = clicks * 10;
+      var revenue = clicks * 100000;
+      var impact = (clicks / 10).toFixed(1);
+
+      document.getElementById('growth').textContent = '+' + growth + '%';
+      document.getElementById('revenue').textContent = '$' + revenue.toLocaleString();
+      document.getElementById('impact').textContent = impact + 'x';
+
+      var milestone = document.getElementById('milestone');
+      var message = '';
+
+      if (clicks === 5) {
+        message = '🎉 PMF Achieved! You now have product-market fit.';
+      } else if (clicks === 10) {
+        message = '🚀 Series A Funded! VCs are impressed with your traction.';
+        createConfetti();
+      } else if (clicks === 20) {
+        message = '🦄 Unicorn Status! $1B valuation reached.';
+        createConfetti();
+      } else if (clicks === 30) {
+        message = '📈 IPO Time! You built a generational company.';
+        createConfetti();
+      } else if (clicks === 50) {
+        message = '👑 Legendary PM! You have exceptional product sense.';
+        createConfetti();
+      }
+
+      if (message) {
+        milestone.textContent = message;
+        milestone.classList.add('show');
+        setTimeout(function() { milestone.classList.remove('show'); }, 4000);
+      }
+
+      var btn = document.getElementById('clickBtn');
+      btn.style.transform = 'scale(0.95)';
+      setTimeout(function() { btn.style.transform = 'scale(1)'; }, 100);
+    }
+
+    window.addEventListener('online', function() {
+      document.getElementById('retrySection').innerHTML = '<div class="online-notice">' +
+        '<div style="font-size: 48px; margin-bottom: 12px;">✅</div>' +
+        '<h3>You\'re Back Online!</h3>' +
+        '<p style="color: rgba(248, 250, 252, 0.8); margin: 12px 0;">Connection restored. Let\'s get you back on track.</p>' +
+        '<button onclick="location.reload()" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); margin-top: 12px;">Reload Page</button>' +
+        '</div>';
+      setTimeout(function() { location.reload(); }, 2000);
     });
+
+    setInterval(function() {
+      if (navigator.onLine) { window.dispatchEvent(new Event('online')); }
+    }, 3000);
   </script>
 </body>
 </html>
