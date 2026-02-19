@@ -34,7 +34,7 @@ const Home = () => {
               width={224}
               height={224}
               fetchPriority="high"
-              className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full mx-auto mb-6 border-4 border-primary/20 object-cover object-[center_25%]"
+              className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full mx-auto mb-6 border-4 border-primary/20 object-cover object-[center_15%] sm:object-[center_25%]"
             />
           </motion.div>
 
