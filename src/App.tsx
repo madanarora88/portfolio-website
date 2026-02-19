@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import ErrorBoundary from './components/ErrorBoundary'
 import NotFound from './pages/NotFound'
+import TestError from './pages/TestError'
 import Home from './pages/Home'
 import CaseStudies from './pages/CaseStudies'
 import Layout from './components/layout/Layout'
@@ -83,6 +84,8 @@ function App() {
             }
           />
         </Route>
+        {/* Test route for ErrorBoundary - visit /test-error to verify */}
+        <Route path="/test-error" element={<TestError />} />
         {/* 404 Catch-all - outside Layout for full-screen game experience */}
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -5,10 +5,10 @@ import { Bug, Home, Briefcase } from 'lucide-react'
 
 const NotFound = () => {
   const [bugs, setBugs] = useState([
-    { id: 1, text: "Missing user research", x: 20, y: 30, caught: false },
-    { id: 2, text: "Scope creep detected", x: 60, y: 50, caught: false },
-    { id: 3, text: "Unclear requirements", x: 40, y: 70, caught: false },
-    { id: 4, text: "No success metrics", x: 80, y: 40, caught: false },
+    { id: 1, text: "Missing user research", x: 20, y: 25, caught: false },
+    { id: 2, text: "Scope creep detected", x: 50, y: 45, caught: false },
+    { id: 3, text: "Unclear requirements", x: 75, y: 65, caught: false },
+    { id: 4, text: "No success metrics", x: 35, y: 75, caught: false },
   ])
 
   const [score, setScore] = useState(0)
@@ -112,28 +112,38 @@ const NotFound = () => {
               {bugs.map(bug => (
                 <AnimatePresence key={bug.id}>
                   {!bug.caught && (
-                    <motion.button
-                      type="button"
-                      initial={{ scale: 0 }}
-                      animate={{
-                        scale: 1,
-                        x: [0, 20, -20, 0],
-                        y: [0, -10, 10, 0],
+                    <motion.div
+                      className="absolute z-20"
+                      style={{
+                        left: `${bug.x}%`,
+                        top: `${bug.y}%`,
+                        transform: 'translate(-50%, -50%)',
                       }}
-                      exit={{ scale: 0, rotate: 360 }}
-                      transition={{
-                        x: { repeat: Infinity, duration: 2 + Math.random() },
-                        y: { repeat: Infinity, duration: 1.5 + Math.random() },
-                      }}
-                      onClick={() => catchBug(bug.id)}
-                      className="absolute bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600 text-white px-4 py-3 rounded-full flex items-center gap-2 cursor-pointer shadow-lg transform hover:scale-110 transition-transform font-medium"
-                      style={{ left: `${bug.x}%`, top: `${bug.y}%` }}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      initial={{ opacity: 1 }}
+                      exit={{ scale: 0, rotate: 360, opacity: 0 }}
                     >
-                      <Bug className="w-4 h-4" />
-                      <span className="text-sm">{bug.text}</span>
-                    </motion.button>
+                      <motion.button
+                        type="button"
+                        initial={{ scale: 1 }}
+                        animate={{
+                          scale: [1, 1.08, 1],
+                          x: [0, 10, -10, 0],
+                          y: [0, -8, 8, 0],
+                        }}
+                        transition={{
+                          scale: { repeat: Infinity, duration: 2 },
+                          x: { repeat: Infinity, duration: 2.5 },
+                          y: { repeat: Infinity, duration: 1.8 },
+                        }}
+                        onClick={() => catchBug(bug.id)}
+                        className="bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600 text-white px-4 py-3 rounded-full flex items-center gap-2 cursor-pointer shadow-lg font-medium border-2 border-white/20"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Bug className="w-4 h-4 shrink-0" />
+                        <span className="text-sm whitespace-nowrap">{bug.text}</span>
+                      </motion.button>
+                    </motion.div>
                   )}
                 </AnimatePresence>
               ))}
@@ -143,7 +153,7 @@ const NotFound = () => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
                 >
                   <div className="text-slate-500 text-lg font-medium">
                     Click the bugs to catch them! 👆

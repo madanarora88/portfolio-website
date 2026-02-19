@@ -19,8 +19,12 @@ self.addEventListener('install', (event) => {
   console.log('[Service Worker] Installing...')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[Service Worker] Caching pages')
-      return cache.addAll(CACHE_URLS)
+      // Cache offline.html first - critical for offline experience
+      return cache.add('/offline.html').then(() => {
+        return Promise.allSettled(
+          CACHE_URLS.filter(url => url !== '/offline.html').map(url => cache.add(url))
+        )
+      })
     })
   )
   self.skipWaiting()
@@ -66,26 +70,26 @@ self.addEventListener('fetch', (event) => {
         return response
       })
       .catch(() => {
-        // Network failed, try cache
+        // Network failed (offline or server down)
+        // For navigation requests, always serve offline.html - the SPA won't work
+        // without JS assets anyway, and we want the fun offline experience
+        if (event.request.mode === 'navigate') {
+          return caches.match(OFFLINE_URL).then((response) => {
+            if (response) return response
+            return new Response(
+              '<h1>Offline</h1><p>Please check your connection and try again.</p>',
+              { headers: { 'Content-Type': 'text/html' } }
+            )
+          })
+        }
+
+        // For other requests (JS, CSS, images), try cache
         return caches.match(event.request).then((response) => {
-          if (response) {
-            console.log('[Service Worker] Serving from cache:', event.request.url)
-            return response
-          }
-
-          // Not in cache, serve offline page for navigation requests
-          if (event.request.mode === 'navigate') {
-            console.log('[Service Worker] Serving offline page')
-            return caches.match(OFFLINE_URL)
-          }
-
-          // For other requests, return a basic error response
+          if (response) return response
           return new Response('Offline - Content not cached', {
             status: 503,
             statusText: 'Service Unavailable',
-            headers: new Headers({
-              'Content-Type': 'text/plain',
-            }),
+            headers: new Headers({ 'Content-Type': 'text/plain' }),
           })
         })
       })
