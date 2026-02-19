@@ -16,24 +16,57 @@
       justify-content: center;
       padding: 24px;
     }
-    .container { max-width: 520px; text-align: center; }
-    .emoji { font-size: 80px; margin-bottom: 24px; }
-    h1 {
-      font-size: 2rem;
-      color: #2E75B6;
-      margin-bottom: 12px;
-    }
-    p { color: rgba(248,250,252,0.7); margin-bottom: 32px; line-height: 1.6; }
-    .links {
+    .container { max-width: 400px; text-align: center; }
+    .emoji { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 1.5rem; color: #2E75B6; margin-bottom: 8px; }
+    p { color: rgba(248,250,252,0.7); margin-bottom: 24px; line-height: 1.5; font-size: 15px; }
+    .bug-grid {
       display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-top: 32px;
+      margin-bottom: 20px;
     }
+    .bug-btn {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      border: 2px solid rgba(248,82,82,0.5);
+      background: rgba(248,82,82,0.15);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: transform 0.2s, background 0.2s;
+      font-size: 11px;
+      color: rgba(248,250,252,0.9);
+    }
+    .bug-btn:hover:not(.squashed) {
+      transform: scale(1.05);
+      background: rgba(248,82,82,0.25);
+    }
+    .bug-btn:active:not(.squashed) { transform: scale(0.95); }
+    .bug-btn.squashed {
+      background: rgba(34,197,94,0.2);
+      border-color: rgba(34,197,94,0.5);
+      cursor: default;
+      opacity: 0.8;
+    }
+    .bug-btn .icon { font-size: 28px; }
+    .links { display: none; }
+    .links.show {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .links a {
       display: block;
-      padding: 16px 24px;
+      padding: 14px 20px;
       background: rgba(248,250,252,0.05);
-      border: 2px solid rgba(248,250,252,0.1);
+      border: 2px solid rgba(248,250,252,0.15);
       border-radius: 12px;
       color: #F8FAFC;
       text-decoration: none;
@@ -42,40 +75,52 @@
     }
     .links a:hover {
       border-color: rgba(46,117,182,0.5);
-      background: rgba(46,117,182,0.1);
+      background: rgba(46,117,182,0.15);
     }
-    .retry {
-      margin-top: 24px;
-      padding: 12px 24px;
-      background: rgba(248,250,252,0.1);
-      border: none;
-      border-radius: 8px;
-      color: #F8FAFC;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-    }
+    .retry { margin-top: 16px; padding: 10px 20px; background: rgba(248,250,252,0.1); border: none; border-radius: 8px; color: #F8FAFC; cursor: pointer; font-size: 14px; }
     .retry:hover { background: rgba(248,250,252,0.15); }
-    .online { color: #10b981; margin-top: 16px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="emoji">📡</div>
-    <h1>You're offline</h1>
-    <p>Lost in the backlog—your connection sprinted away. Choose a path when you're back online:</p>
-    <div class="links">
+    <div class="emoji">🐛</div>
+    <h1>You're offline — squash the bugs!</h1>
+    <p>Squash all 6 bugs to find your way back. (Your connection sprinted away.)</p>
+    <div class="bug-grid" id="grid">
+      <button class="bug-btn" data-id="0"><span class="icon">🐛</span><span>Scope creep</span></button>
+      <button class="bug-btn" data-id="1"><span class="icon">🐛</span><span>Deadline</span></button>
+      <button class="bug-btn" data-id="2"><span class="icon">🐛</span><span>Requirements</span></button>
+      <button class="bug-btn" data-id="3"><span class="icon">🐛</span><span>Stakeholder</span></button>
+      <button class="bug-btn" data-id="4"><span class="icon">🐛</span><span>Tech debt</span></button>
+      <button class="bug-btn" data-id="5"><span class="icon">🐛</span><span>Backlog</span></button>
+    </div>
+    <p id="count" class="text-sm" style="color: rgba(248,250,252,0.5);">0 / 6 squashed</p>
+    <div class="links" id="links">
       <a href="/">🏠 Home</a>
       <a href="/case-studies">💼 Case Studies</a>
       <a href="/contact">✉️ Contact</a>
     </div>
-    <button class="retry" onclick="location.reload()">Try again</button>
-    <div id="online-msg" class="online" style="display:none;">Back online! Reloading…</div>
+    <button class="retry" id="retry" onclick="location.reload()" style="display:none;">Try again</button>
   </div>
   <script>
-    window.addEventListener('online', function() {
-      document.getElementById('online-msg').style.display = 'block';
-      setTimeout(function() { location.reload(); }, 1500);
+    var squashed = [];
+    var total = 6;
+    function squash(id) {
+      if (squashed.indexOf(id) !== -1) return;
+      squashed.push(id);
+      var btn = document.querySelector('[data-id="' + id + '"]');
+      btn.classList.add('squashed');
+      btn.innerHTML = '<span class="icon">✅</span><span>Squashed!</span>';
+      btn.onclick = null;
+      document.getElementById('count').textContent = squashed.length + ' / ' + total + ' squashed';
+      if (squashed.length === total) {
+        document.getElementById('count').style.display = 'none';
+        document.getElementById('links').classList.add('show');
+        document.getElementById('retry').style.display = 'inline-block';
+      }
+    }
+    document.querySelectorAll('.bug-btn').forEach(function(btn) {
+      btn.onclick = function() { squash(parseInt(btn.getAttribute('data-id'), 10)); };
     });
   </script>
 </body>
