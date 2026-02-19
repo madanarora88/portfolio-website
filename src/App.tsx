@@ -2,6 +2,8 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
+import ErrorBoundary from './components/ErrorBoundary'
+import NotFound from './pages/NotFound'
 import Home from './pages/Home'
 import CaseStudies from './pages/CaseStudies'
 import Layout from './components/layout/Layout'
@@ -17,7 +19,8 @@ const Contact = lazy(() => import('./pages/Contact'))
 
 function App() {
   return (
-    <Router>
+    <ErrorBoundary>
+      <Router>
       <GoogleAnalytics />
       <Routes>
         <Route element={<Layout />}>
@@ -80,10 +83,13 @@ function App() {
             }
           />
         </Route>
+        {/* 404 Catch-all - outside Layout for full-screen game experience */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <CommandPalette />
-      <Analytics />
-    </Router>
+        <CommandPalette />
+        <Analytics />
+      </Router>
+    </ErrorBoundary>
   )
 }
 
