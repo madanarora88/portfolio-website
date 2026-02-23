@@ -33,6 +33,19 @@ npm run build
 npx vercel
 ```
 
+### Deploy with live AI (Ask AI + AI Experiments)
+
+1. **Set the API key in Vercel**
+   - Vercel dashboard → your project → **Settings** → **Environment Variables**
+   - Add `ANTHROPIC_API_KEY` with your [Anthropic](https://console.anthropic.com/) API key (Production and Preview if you want AI in both).
+
+2. **Deploy**
+   - If the repo is connected to Vercel: push to `main` and Vercel will build and deploy.
+   - Or from the repo root: `npm run build` then `npx vercel --prod`.
+
+3. **Verify**
+   - Ask AI (floating button or ⌘I) and the three AI Experiments (Hiring Signal Extractor, PM Decision Pressure Test, Onboarding Failure Detector) will use live Claude when `ANTHROPIC_API_KEY` is set.
+
 ## Structure
 ```
 src/

@@ -162,19 +162,18 @@ export default function AskAI() {
               className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm"
             />
 
-            {/* Chat panel */}
+            {/* Chat panel — inset so it always fits without zooming out */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 20 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-full max-w-2xl mx-4"
+              className="fixed inset-4 sm:inset-6 z-[101] flex flex-col pointer-events-none"
             >
-              <div className="mx-4 rounded-xl border border-light/10 bg-dark shadow-2xl overflow-hidden flex flex-col"
-                style={{ maxHeight: '80vh' }}
+              <div className="pointer-events-auto w-full max-w-2xl flex-1 min-h-0 rounded-xl border border-light/10 bg-dark shadow-2xl overflow-hidden flex flex-col"
               >
                 {/* Header */}
-                <div className="flex items-center justify-between px-5 py-4 border-b border-light/10">
+                <div className="flex items-center justify-between px-5 py-4 border-b border-light/10 shrink-0">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
                       <Sparkles className="w-4 h-4 text-primary" />
@@ -192,11 +191,10 @@ export default function AskAI() {
                   </button>
                 </div>
 
-                {/* Messages */}
+                {/* Messages — flex-1 min-h-0 so this area scrolls and doesn't force modal to grow */}
                 <div
                   ref={chatContainerRef}
-                  className="flex-1 overflow-y-auto p-5 space-y-5"
-                  style={{ minHeight: '280px', maxHeight: '400px' }}
+                  className="flex-1 min-h-0 overflow-y-auto p-5 space-y-5"
                 >
                   <AnimatePresence>
                     {messages.map((msg) => (
@@ -246,7 +244,7 @@ export default function AskAI() {
                 </div>
 
                 {/* Input */}
-                <form onSubmit={handleSubmit} className="p-4 border-t border-light/10">
+                <form onSubmit={handleSubmit} className="shrink-0 p-4 border-t border-light/10">
                   <div className="flex gap-3">
                     <input
                       ref={inputRef}

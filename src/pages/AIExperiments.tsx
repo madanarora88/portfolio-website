@@ -1,19 +1,18 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { MessageCircle, Grid2X2, Lightbulb, TrendingUp } from 'lucide-react'
-import OnboardingAssistant from '@/components/ai-experiments/OnboardingAssistant'
-import FeaturePrioritization from '@/components/ai-experiments/FeaturePrioritization'
-import ProductIdeaGenerator from '@/components/ai-experiments/ProductIdeaGenerator'
-import ProductStrategyAdvisor from '@/components/ai-experiments/ProductStrategyAdvisor'
+import HiringSignalExtractor from '@/components/ai-experiments/HiringSignalExtractor'
+import PMDecisionPressureTest from '@/components/ai-experiments/PMDecisionPressureTest'
+import OnboardingFailureDetector from '@/components/ai-experiments/OnboardingFailureDetector'
 
-const EXPERIMENTS = [
-  { id: 'onboarding-assistant', label: 'AI Onboarding Assistant', icon: MessageCircle, desc: 'Chat-style Q&A on product & AI' },
-  { id: 'feature-prioritization', label: 'Feature Prioritization Matrix', icon: Grid2X2, desc: 'Impact vs effort quadrants' },
-  { id: 'strategy-advisor', label: 'AI Product Strategy Advisor', icon: TrendingUp, desc: 'VP-level strategic PM thinking' },
-  { id: 'idea-generator', label: 'Mini Product Idea Generator', icon: Lightbulb, desc: 'Quick product idea prompts' },
+const TABS = [
+  { id: 'hiring', num: '01', color: '#f59e0b', title: 'Hiring Signal Extractor', sub: 'Decode what a company actually needs from their JD' },
+  { id: 'decision', num: '02', color: '#3b82f6', title: 'PM Decision Pressure Test', sub: 'Steelman your options. Get a call — not a framework.' },
+  { id: 'onboarding', num: '03', color: '#10b981', title: 'Onboarding Failure Detector', sub: 'Find exactly where your flow is bleeding users' },
 ] as const
 
 export default function AIExperiments() {
+  const [active, setActive] = useState<'hiring' | 'decision' | 'onboarding'>('hiring')
+
   useEffect(() => {
     if (!window.location.hash) {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
@@ -21,55 +20,50 @@ export default function AIExperiments() {
   }, [])
 
   return (
-    <div className="min-h-screen py-20 px-6">
+    <div className="min-h-screen py-16 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-12"
+          className="mb-10"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">AI Experiments</h1>
-          <p className="text-lg text-light/70 mb-4">
-            Interactive demos that demonstrate AI product intuition — how I think about building
-            AI-powered products and the strategic decisions behind them.
+          <p className="text-xs font-semibold uppercase tracking-wider text-light/50 mb-2">AI Experiments</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-light mb-3">Products, not demos.</h1>
+          <p className="text-light/70 text-sm md:text-base max-w-2xl leading-relaxed">
+            Each experiment is a live AI product with a point of view. Every design decision is annotated. This is what building end-to-end looks like.
           </p>
-          <p className="text-sm text-light/50 mb-8">
-            Chat uses live AI when deployed with an API key; other demos are pre-written to show my
-            thinking.
-          </p>
-
-          <p className="text-sm font-medium text-light/80 mb-3">Jump to an experiment:</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" aria-label="Jump to experiment">
-            {EXPERIMENTS.map(({ id, label, icon: Icon, desc }) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                className="flex items-start gap-4 p-4 rounded-xl bg-light/10 hover:bg-primary/20 border-2 border-light/20 hover:border-primary/40 text-left transition-all group"
-              >
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30">
-                  <Icon className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold text-light group-hover:text-primary">{label}</div>
-                  <div className="text-sm text-light/60">{desc}</div>
-                </div>
-              </a>
-            ))}
-          </div>
         </motion.div>
 
-        <section id="onboarding-assistant" className="scroll-mt-24">
-          <OnboardingAssistant />
-        </section>
-        <section id="feature-prioritization" className="scroll-mt-24">
-          <FeaturePrioritization />
-        </section>
-        <section id="strategy-advisor" className="scroll-mt-24">
-          <ProductStrategyAdvisor />
-        </section>
-        <section id="idea-generator" className="scroll-mt-24">
-          <ProductIdeaGenerator />
-        </section>
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-light/10 pb-4">
+          {TABS.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActive(tab.id)}
+              className={`text-left px-4 py-3 rounded-xl border-2 transition-all ${
+                active === tab.id
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-light/10 bg-light/5 text-light/70 hover:border-light/20 hover:text-light'
+              }`}
+            >
+              <span className="text-xs font-mono font-semibold" style={{ color: active === tab.id ? undefined : tab.color }}>{tab.num}</span>
+              <span className="block font-semibold text-sm mt-0.5">{tab.title}</span>
+              <span className="block text-xs text-light/50 mt-0.5">{tab.sub}</span>
+            </button>
+          ))}
+        </div>
+
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="rounded-2xl border border-light/10 bg-light/5 p-6 sm:p-8"
+        >
+          {active === 'hiring' && <HiringSignalExtractor />}
+          {active === 'decision' && <PMDecisionPressureTest />}
+          {active === 'onboarding' && <OnboardingFailureDetector />}
+        </motion.div>
       </div>
     </div>
   )
