@@ -148,22 +148,6 @@ export default function AskAI() {
   return (
     <>
       {/* Floating trigger button */}
-      <motion.button
-        onClick={toggle}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1 }}
-        className={`fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-3 rounded-full shadow-lg font-semibold text-sm transition-all ${
-          isOpen
-            ? 'bg-primary/20 border border-primary/40 text-primary'
-            : 'bg-primary hover:bg-primary/90 text-white'
-        }`}
-        aria-label="Toggle Ask AI"
-      >
-        <Sparkles className="w-4 h-4" />
-        Ask AI
-        <kbd className="hidden sm:inline text-xs opacity-70 ml-1">⌘I</kbd>
-      </motion.button>
 
       {/* Modal overlay */}
       <AnimatePresence>
