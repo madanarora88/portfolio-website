@@ -3,7 +3,7 @@
  * Set ANTHROPIC_API_KEY in Vercel project Environment Variables for live AI.
  */
 
-const CLAUDE_MODEL = 'claude-3-5-haiku-20241022'
+const CLAUDE_MODEL = 'claude-haiku-4-5'
 
 function cors(res) {
   res.setHeader('Access-Control-Allow-Credentials', 'true')
