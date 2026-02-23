@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import CaseStudies from './pages/CaseStudies'
 import Layout from './components/layout/Layout'
 import CommandPalette from './components/layout/CommandPalette'
+import AskAI from './components/AskAI'
 
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudyDetail'))
 const AIExperiments = lazy(() => import('./pages/AIExperiments'))
@@ -90,6 +91,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
         <CommandPalette />
+        <AskAI />
         <Analytics />
       </Router>
     </ErrorBoundary>

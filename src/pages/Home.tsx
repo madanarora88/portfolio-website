@@ -1,15 +1,12 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Briefcase, Users, TrendingUp, Award, Lightbulb, Rocket, ExternalLink, X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowRight, Briefcase, Users, TrendingUp, Award, Lightbulb, Rocket, Download } from 'lucide-react'
 import { profile } from '../data/profile'
 import { caseStudies } from '../data/caseStudies'
 import PrincipleCard from '../components/common/PrincipleCard'
+import WeekendProjectsSection from '../components/sections/WeekendProjectsSection'
 
 const Home = () => {
-  const [designGallery, setDesignGallery] = useState<{ images: string[]; title: string } | null>(null)
-  const [galleryIndex, setGalleryIndex] = useState(0)
-
   return (
     <div className="min-h-screen bg-dark">
       {/* Hero Section */}
@@ -84,6 +81,14 @@ const Home = () => {
             >
               Get In Touch
             </Link>
+            <a
+              href="/assets/Resume/resume.pdf"
+              download="Madan_Arora_Resume.pdf"
+              className="px-8 py-4 border-2 border-light/20 hover:border-light/40 hover:bg-light/5 text-light rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+            >
+              <Download className="w-5 h-5" />
+              Resume
+            </a>
           </div>
 
           {/* Companies */}
@@ -291,152 +296,24 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Side Projects */}
-      {profile.sideProjects && profile.sideProjects.length > 0 && (
-        <section className="py-24 px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl font-bold mb-4">Side Projects</h2>
-              <p className="text-light/70 text-lg max-w-2xl mx-auto">
-                Weekend builds and experiments
-              </p>
-            </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {profile.sideProjects.map((project, i) => {
-                const hasUrl = project.url
-                const hasImages = 'images' in project && project.images?.length
-                return hasUrl ? (
-                  <motion.a
-                    key={project.title}
-                    href={project.url!}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    whileHover={{ scale: 1.02, y: -4 }}
-                    className="block p-6 rounded-xl bg-light/5 border border-light/10 hover:border-primary/30 transition-colors"
-                  >
-                    <div className="flex items-start justify-between gap-4 mb-3">
-                      <h3 className="text-xl font-bold">{project.title}</h3>
-                      <ExternalLink className="w-5 h-5 shrink-0 text-primary/70" />
-                    </div>
-                    <p className="text-light/70 mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.a>
-                ) : (
-                  <motion.button
-                    key={project.title}
-                    type="button"
-                    onClick={() => {
-                      if (hasImages) {
-                        setGalleryIndex(0)
-                        setDesignGallery({ images: project.images!, title: project.title })
-                      }
-                    }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    whileHover={{ scale: 1.02, y: -4 }}
-                    className="w-full text-left p-6 rounded-xl bg-light/5 border border-light/10 hover:border-primary/30 transition-colors"
-                  >
-                    <div className="flex items-start justify-between gap-4 mb-3">
-                      <h3 className="text-xl font-bold">{project.title}</h3>
-                      {hasImages && (
-                        <ImageIcon className="w-5 h-5 shrink-0 text-primary/70" />
-                      )}
-                    </div>
-                    <p className="text-light/70 mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {hasImages && (
-                      <p className="mt-3 text-sm text-primary font-medium">View designs →</p>
-                    )}
-                  </motion.button>
-                )
-              })}
-            </div>
-
-            {/* Design gallery modal */}
-            <AnimatePresence>
-              {designGallery && (
-                <>
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onClick={() => setDesignGallery(null)}
-                    className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm"
-                  />
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    className="fixed inset-4 md:inset-12 z-50 flex flex-col bg-dark rounded-xl border border-light/10 overflow-hidden"
-                  >
-                    <div className="flex items-center justify-between p-4 border-b border-light/10">
-                      <h3 className="text-lg font-bold">{designGallery.title} – Designs</h3>
-                      <button
-                        onClick={() => setDesignGallery(null)}
-                        className="p-2 rounded-lg hover:bg-light/10 transition-colors"
-                      >
-                        <X className="w-5 h-5" />
-                      </button>
-                    </div>
-                    <div className="flex-1 flex items-center justify-center p-4 overflow-hidden">
-                      <img
-                        src={designGallery.images[galleryIndex]}
-                        alt={`Design ${galleryIndex + 1}`}
-                        width={800}
-                        height={600}
-                        loading="lazy"
-                        className="max-h-full max-w-full object-contain rounded-lg"
-                      />
-                    </div>
-                    {designGallery.images.length > 1 && (
-                      <div className="flex items-center justify-center gap-4 p-4 border-t border-light/10">
-                        <button
-                          onClick={() => setGalleryIndex((i) => (i - 1 + designGallery.images.length) % designGallery.images.length)}
-                          className="p-2 rounded-lg hover:bg-light/10 transition-colors"
-                        >
-                          <ChevronLeft className="w-6 h-6" />
-                        </button>
-                        <span className="text-sm text-light/60">
-                          {galleryIndex + 1} / {designGallery.images.length}
-                        </span>
-                        <button
-                          onClick={() => setGalleryIndex((i) => (i + 1) % designGallery.images.length)}
-                          className="p-2 rounded-lg hover:bg-light/10 transition-colors"
-                        >
-                          <ChevronRight className="w-6 h-6" />
-                        </button>
-                      </div>
-                    )}
-                  </motion.div>
-                </>
-              )}
-            </AnimatePresence>
-          </div>
-        </section>
-      )}
+      {/* Weekend Builds & Early Work */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">Weekend Builds &amp; Early Work</h2>
+            <p className="text-light/70 text-lg max-w-2xl mx-auto">
+              The best PMs build things. Not because they need to — because they can't stop thinking
+              about problems worth solving.
+            </p>
+          </motion.div>
+          <WeekendProjectsSection />
+        </div>
+      </section>
     </div>
   )
 }

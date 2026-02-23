@@ -17,11 +17,29 @@ export default function ProductIdeaGenerator() {
 
   const getTopic = () => customTopic.trim() || topic
 
-  const generate = () => {
+  const generate = async () => {
     const t = getTopic()
     if (!t) return
     setLoading(true)
     setIdeas([])
+
+    try {
+      const res = await fetch('/api/ideas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic: t }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (res.ok && !data.useMock && Array.isArray(data.ideas) && data.ideas.length > 0) {
+        setIdeas(data.ideas)
+        setLoading(false)
+        return
+      }
+    } catch {
+      // fall through to seed fallback
+    }
+
+    // Seed fallback
     setTimeout(() => {
       const key = Object.keys(productIdeaSeeds).find((k) =>
         t.toLowerCase().includes(k)

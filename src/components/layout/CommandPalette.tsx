@@ -17,7 +17,7 @@ const commands = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/case-studies', label: 'Case Studies', icon: FileText },
   { path: '/ai-experiments', label: 'AI Experiments', icon: FlaskConical },
-  { path: '/simulator', label: 'Think Like a PM', icon: Command },
+  { path: '/simulator', label: 'How I Think at Exec Level', icon: Command },
   { path: '/writing', label: 'Writing', icon: PenLine },
   { path: '/about', label: 'About', icon: User },
   { path: '/speaking', label: 'Speaking', icon: Mic },

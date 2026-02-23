@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { profile, experience } from '../data/profile'
 import CareerTimeline from '../components/common/CareerTimeline'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Download } from 'lucide-react'
 
 export default function About() {
   return (
@@ -65,6 +65,14 @@ export default function About() {
                   Book <ExternalLink className="w-4 h-4" />
                 </a>
               )}
+              <a
+                href="/assets/Resume/resume.pdf"
+                download="Madan_Arora_Resume.pdf"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-light/5 hover:bg-light/10 border border-light/10 hover:border-light/20 text-light font-medium transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Download Resume
+              </a>
             </div>
           </motion.div>
         </div>

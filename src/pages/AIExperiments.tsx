@@ -1,20 +1,19 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { MessageCircle, Grid2X2, HelpCircle, Lightbulb } from 'lucide-react'
+import { MessageCircle, Grid2X2, Lightbulb, TrendingUp } from 'lucide-react'
 import OnboardingAssistant from '@/components/ai-experiments/OnboardingAssistant'
 import FeaturePrioritization from '@/components/ai-experiments/FeaturePrioritization'
-import ScenarioPicker from '@/components/ai-experiments/ScenarioPicker'
 import ProductIdeaGenerator from '@/components/ai-experiments/ProductIdeaGenerator'
+import ProductStrategyAdvisor from '@/components/ai-experiments/ProductStrategyAdvisor'
 
 const EXPERIMENTS = [
   { id: 'onboarding-assistant', label: 'AI Onboarding Assistant', icon: MessageCircle, desc: 'Chat-style Q&A on product & AI' },
   { id: 'feature-prioritization', label: 'Feature Prioritization Matrix', icon: Grid2X2, desc: 'Impact vs effort quadrants' },
-  { id: 'pm-do', label: 'What Would a PM Do?', icon: HelpCircle, desc: 'Scenario-based PM thinking' },
+  { id: 'strategy-advisor', label: 'AI Product Strategy Advisor', icon: TrendingUp, desc: 'VP-level strategic PM thinking' },
   { id: 'idea-generator', label: 'Mini Product Idea Generator', icon: Lightbulb, desc: 'Quick product idea prompts' },
 ] as const
 
 export default function AIExperiments() {
-  // Ensure we land at top when this page loads (backup for Layout, handles lazy-load timing)
   useEffect(() => {
     if (!window.location.hash) {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
@@ -31,10 +30,12 @@ export default function AIExperiments() {
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4">AI Experiments</h1>
           <p className="text-lg text-light/70 mb-4">
-            Interactive demos that demonstrate AI product intuition—how I think about building AI-powered products.
+            Interactive demos that demonstrate AI product intuition — how I think about building
+            AI-powered products and the strategic decisions behind them.
           </p>
           <p className="text-sm text-light/50 mb-8">
-            Chat uses live AI when deployed with an API key; other demos are pre-written to show my thinking.
+            Chat uses live AI when deployed with an API key; other demos are pre-written to show my
+            thinking.
           </p>
 
           <p className="text-sm font-medium text-light/80 mb-3">Jump to an experiment:</p>
@@ -63,8 +64,8 @@ export default function AIExperiments() {
         <section id="feature-prioritization" className="scroll-mt-24">
           <FeaturePrioritization />
         </section>
-        <section id="pm-do" className="scroll-mt-24">
-          <ScenarioPicker />
+        <section id="strategy-advisor" className="scroll-mt-24">
+          <ProductStrategyAdvisor />
         </section>
         <section id="idea-generator" className="scroll-mt-24">
           <ProductIdeaGenerator />

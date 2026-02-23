@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Command } from 'lucide-react'
+import { Menu, X, Command, Sparkles } from 'lucide-react'
 import { useCommandPaletteStore } from '../../stores/commandPaletteStore'
+import { useAskAIStore } from '../../stores/askAIStore'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -18,6 +19,7 @@ const navLinks = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const openCommandPalette = useCommandPaletteStore((s) => s.open)
+  const openAskAI = useAskAIStore((s) => s.open)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-md border-b border-light/5">
@@ -46,6 +48,14 @@ export default function Header() {
           >
             <Command className="w-4 h-4" />
             <span>⌘K</span>
+          </button>
+          <button
+            onClick={openAskAI}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 text-primary text-sm transition-all font-medium"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Ask AI</span>
+            <span className="text-primary/60 text-xs">⌘I</span>
           </button>
         </div>
 
