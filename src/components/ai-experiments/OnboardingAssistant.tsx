@@ -149,7 +149,7 @@ export default function OnboardingAssistant() {
     >
       <h2 className="text-2xl font-bold mb-2">AI Onboarding Assistant</h2>
       <p className="text-light/60 mb-4">
-        Ask product or AI questions. When deployed with <code className="text-xs bg-light/10 px-1 rounded">OPENAI_API_KEY</code>, you get live AI (rate-limited); otherwise pre-written demo responses.
+        Ask product or AI questions. When deployed with <code className="text-xs bg-light/10 px-1 rounded">ANTHROPIC_API_KEY</code>, you get live AI (rate-limited); otherwise pre-written demo responses.
       </p>
       {usedFallback && (
         <p className="text-sm text-primary/80 mb-2">Using demo responses (API not configured or rate limit).</p>

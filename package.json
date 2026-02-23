@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@vercel/analytics": "^1.6.1",
     "framer-motion": "^10.16.16",
     "lucide-react": "^0.294.0",

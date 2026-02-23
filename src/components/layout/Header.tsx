@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Command, Sparkles } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useCommandPaletteStore } from '../../stores/commandPaletteStore'
 import { useAskAIStore } from '../../stores/askAIStore'
 
@@ -44,18 +44,17 @@ export default function Header() {
           ))}
           <button
             onClick={openCommandPalette}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-light/5 hover:bg-light/10 border border-light/10 text-light/70 hover:text-light text-sm transition-all"
+            aria-label="Search (⌘K)"
+            className="px-3 py-1.5 rounded-lg bg-light/5 hover:bg-light/10 border border-light/10 text-light/70 hover:text-light text-sm transition-all font-medium"
           >
-            <Command className="w-4 h-4" />
-            <span>⌘K</span>
+            ⌘K
           </button>
           <button
             onClick={openAskAI}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 text-primary text-sm transition-all font-medium"
+            aria-label="Ask AI (⌘I)"
+            className="px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 text-primary text-sm transition-all font-medium"
           >
-            <Sparkles className="w-4 h-4" />
-            <span>Ask AI</span>
-            <span className="text-primary/60 text-xs">⌘I</span>
+            ⌘I
           </button>
         </div>
 
@@ -94,9 +93,8 @@ export default function Header() {
                   openCommandPalette()
                   setMobileMenuOpen(false)
                 }}
-                className="flex items-center gap-2 py-2 text-light/70 hover:text-light font-medium"
+                className="py-2 text-light/70 hover:text-light font-medium"
               >
-                <Command className="w-4 h-4" />
                 Search (⌘K)
               </button>
             </div>

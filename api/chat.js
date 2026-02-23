@@ -1,9 +1,9 @@
 /**
  * Serverless chat API for AI Experiments (Vercel).
- * Set OPENAI_API_KEY in Vercel project Environment Variables for live AI.
+ * Set ANTHROPIC_API_KEY in Vercel project Environment Variables for live AI.
  */
 
-const OPENAI_MODEL = 'gpt-4o-mini'
+const CLAUDE_MODEL = 'claude-3-5-haiku-20241022'
 
 function cors(res) {
   res.setHeader('Access-Control-Allow-Credentials', 'true')
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const apiKey = process.env.OPENAI_API_KEY
+  const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) {
     return res.status(200).json({ useMock: true, text: null })
   }
@@ -45,26 +45,26 @@ export default async function handler(req, res) {
   const systemContent = systemPrompts[mode] || systemPrompts.default
 
   try {
-    const { default: OpenAI } = await import('openai')
-    const openai = new OpenAI({ apiKey })
+    const Anthropic = (await import('@anthropic-ai/sdk')).default
+    const client = new Anthropic({ apiKey })
 
-    const messages = [
-      {
-        role: 'system',
-        content: systemContent,
-      },
+    let apiMessages = [
       ...history.slice(-10).map((m) => ({ role: m.role, content: m.content })),
       { role: 'user', content: message },
     ]
+    while (apiMessages.length > 0 && apiMessages[0].role !== 'user') {
+      apiMessages = apiMessages.slice(1)
+    }
 
-    const completion = await openai.chat.completions.create({
-      model: OPENAI_MODEL,
-      messages,
+    const response = await client.messages.create({
+      model: CLAUDE_MODEL,
       max_tokens: 400,
-      temperature: 0.7,
+      system: systemContent,
+      messages: apiMessages,
     })
 
-    const text = completion.choices?.[0]?.message?.content?.trim()
+    const textBlock = response.content?.find((b) => b.type === 'text')
+    const text = textBlock?.text?.trim()
     if (!text) {
       return res.status(200).json({ useMock: true, text: null })
     }
