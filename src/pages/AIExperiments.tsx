@@ -6,7 +6,7 @@ import OnboardingFailureDetector from '@/components/ai-experiments/OnboardingFai
 
 const TABS = [
   { id: 'hiring', num: '01', color: '#f59e0b', title: 'Hiring Signal Extractor', sub: 'Decode what a company actually needs from their JD' },
-  { id: 'decision', num: '02', color: '#3b82f6', title: 'PM Decision Pressure Test', sub: 'Steelman your options. Get a call — not a framework.' },
+  { id: 'decision', num: '02', color: '#3b82f6', title: 'PM Decision Pressure Test', sub: 'Steelman your options. Get a call, not a framework.' },
   { id: 'onboarding', num: '03', color: '#10b981', title: 'Onboarding Failure Detector', sub: 'Find exactly where your flow is bleeding users' },
 ] as const
 

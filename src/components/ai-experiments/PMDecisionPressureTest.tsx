@@ -161,7 +161,7 @@ export default function PMDecisionPressureTest() {
       </div>
       <h2 className="text-2xl font-bold text-light">PM Decision Pressure Test</h2>
       <p className="text-light/70 text-sm leading-relaxed max-w-xl">
-        Describe a product decision you're sitting on. I'll steelman the data perspective, the political reality, and what users would actually say — then tell you exactly what I'd do.
+        Describe a product decision you're sitting on. I'll steelman the data perspective, the political reality, and what users would actually say, then tell you exactly what I'd do.
       </p>
       <p className="text-xs text-light/40 border-l-2 border-light/10 pl-3">
         <strong className="text-light/50">PM note:</strong> The three-lens framework forces a stake in the ground. Analysts give you options. Senior PMs make a call.

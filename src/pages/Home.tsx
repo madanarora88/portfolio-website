@@ -121,7 +121,7 @@ const Home = () => {
                 className="block p-5 rounded-xl bg-dark border border-light/10 hover:border-primary/30 transition-colors text-center group"
               >
                 <div className="text-2xl md:text-3xl font-bold text-primary mb-1 group-hover:text-primary/90">
-                  {study.metrics[0]?.value ?? '—'}
+                  {study.metrics[0]?.value ?? '-'}
                 </div>
                 <div className="text-light/60 text-sm mb-2">{study.metrics[0]?.label ?? ''}</div>
                 <div className="text-light/90 font-medium">{study.company} · {study.title}</div>
@@ -179,7 +179,7 @@ const Home = () => {
             >
               <h2 className="text-4xl font-bold mb-4">Why Companies Hire Me</h2>
               <p className="text-light/70 text-lg max-w-2xl mx-auto">
-                What I bring to a team—in practice
+                What I bring to a team, in practice
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -334,7 +334,7 @@ const Home = () => {
           >
             <h2 className="text-4xl font-bold mb-4">Weekend Builds &amp; Early Work</h2>
             <p className="text-light/70 text-lg max-w-2xl mx-auto">
-              The best PMs build things. Not because they need to — because they can't stop thinking
+              The best PMs build things. Not because they need to, because they can't stop thinking
               about problems worth solving.
             </p>
           </motion.div>

@@ -78,14 +78,14 @@ export default function Speaking() {
               <VideoCard
                 videoId={TEDX_VIDEO_ID}
                 title="TEDx Talk"
-                description="Life is a lot like Bowling — a TEDx talk on mindset, habits, and how the best leaders think."
+                description="Life is a lot like Bowling. A TEDx talk on mindset, habits, and how the best leaders think."
                 href={profile.links.tedTalk}
               />
             )}
             <VideoCard
               videoId={LEAN_AGILE_VIDEO_ID}
               title="Lean Agile Leadership Talk"
-              description="Building with speed, feedback, and continuous improvement — Lean and Agile practices for product leaders."
+              description="Building with speed, feedback, and continuous improvement. Lean and Agile practices for product leaders."
               href="https://youtu.be/S1gIv2EJbTo"
             />
           </div>

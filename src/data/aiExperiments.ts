@@ -13,12 +13,12 @@ export const pmScenarios = [
   {
     id: "enterprise-pilot",
     scenario: "Your enterprise pilot has 3 customers. One wants custom SSO, one wants a different data region, one is happy as-is.",
-    pmMove: "Say no to custom SSO and custom regions for now—document as roadmap. Standardize on one identity and one region for the pilot. Use their feedback to prioritize what goes into v1 for the next 10 customers.",
+    pmMove: "Say no to custom SSO and custom regions for now. Document as roadmap. Standardize on one identity and one region for the pilot. Use their feedback to prioritize what goes into v1 for the next 10 customers.",
   },
   {
     id: "ai-mistake",
     scenario: "Your AI feature sometimes gives wrong advice. Support tickets went up 20%.",
-    pmMove: "Add guardrails: confidence thresholds, 'Verify with an expert' CTA, and human-in-the-loop for high-stakes flows. Communicate uncertainty in the UI. Measure 'user corrected the AI' as a signal. Don't hide the mistake—design for it.",
+    pmMove: "Add guardrails: confidence thresholds, 'Verify with an expert' CTA, and human-in-the-loop for high-stakes flows. Communicate uncertainty in the UI. Measure 'user corrected the AI' as a signal. Don't hide the mistake. Design for it.",
   },
 ]
 
@@ -26,7 +26,7 @@ export const pmScenarios = [
 export const productIdeaSeeds: Record<string, string[]> = {
   "employee onboarding": [
     "AI buddy that answers 'where do I find X?' in natural language and adapts to role and location.",
-    "Micro-learning checkpoints that unlock based on progress, not calendar—reduces overload and increases completion.",
+    "Micro-learning checkpoints that unlock based on progress, not calendar. Reduces overload and increases completion.",
     "Manager nudges: 'Your report hasn’t completed safety training' with one-click escalation so nothing falls through.",
   ],
   "customer support": [

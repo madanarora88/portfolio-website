@@ -1,8 +1,8 @@
 export const profile = {
   name: "Madan Arora",
   title: "AI Product Manager",
-  tagline: "I ship AI products people actually use",
-  bio: "I'm VP of Product at JPMorgan Chase. Before that I led product at Walmart, IBM, and American Airlines—products that ended up in the hands of over 2 million people. I care more about what gets shipped than what gets pitched.",
+  tagline: "I design AI products that feel like magic",
+  bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 2M+ users. Known for exceptional product sense, AI transformation expertise, and driving $50M+ in revenue impact.",
   
   contact: {
     email: "aroramadan88@gmail.com",
@@ -34,10 +34,10 @@ export const profile = {
   ],
 
   whyHireMe: [
-    "I've shipped products that 2M+ people use every day. At Walmart we got to 80% adoption on the supply chain app—not by mandating it, by making it useful.",
+    "I've shipped products that 2M+ people use every day. At Walmart we got to 80% adoption on the supply chain app, not by mandating it, by making it useful.",
     "I've built things from zero at big companies. The feedback platform I led had no playbook; we interviewed 40+ associates before writing code and hit 32% better activation in six months.",
     "I treat AI as a product problem, not a tech demo. The hiring tool I built cut time-to-offer from 2 weeks to 24 hours because we obsessed over manager trust, not just model accuracy.",
-    "The numbers I'm proud of: $15–20M saved per DC at Walmart, $100M+ revenue impact at IBM, 50% drop in candidate drop-off. I can walk you through how we got there.",
+    "The numbers I'm proud of: $15-20M saved per DC at Walmart, $100M+ revenue impact at IBM, 50% drop in candidate drop-off. I can walk you through how we got there.",
   ],
 
   sideProjects: [
@@ -49,7 +49,7 @@ export const profile = {
     },
     {
       title: "PlateRater",
-      description: "A food-focused app for foodies to rate individual dishes (quality, taste, presentation, portion, etc.)—unlike Yelp's restaurant ratings. Featured the best dishes around, what friends were eating, and helped mom & pop shops, celebrity chefs, and food trucks showcase their best plates. When you go to a restaurant, you'd know exactly what to order.",
+      description: "A food-focused app for foodies to rate individual dishes (quality, taste, presentation, portion, etc.), unlike Yelp's restaurant ratings. Featured the best dishes around, what friends were eating, and helped mom & pop shops, celebrity chefs, and food trucks showcase their best plates. When you go to a restaurant, you'd know exactly what to order.",
       url: null,
       tags: ["Mobile", "Food", "0→1"],
       images: [
@@ -80,7 +80,7 @@ export const profile = {
     { title: "Employee experience that scales", desc: "I've done onboarding and feedback for 50K+ hires and 2M+ daily users. I know where the friction is and how to fix it." },
     { title: "AI that earns trust, not just metrics", desc: "At Walmart we got managers to actually use the AI hiring tool by measuring what they did, not just model accuracy. I'd do the same for you." },
     { title: "New product from idea to launch", desc: "I've taken products from zero to adoption at Fortune 50 companies. Tight scope, fast feedback, and a clear definition of 'done'." },
-    { title: "Operations that don't rely on heroics", desc: "Labor tools, scheduling, feedback loops—I've built the kind of products that save hundreds of thousands of hours so teams can focus on people." },
+    { title: "Operations that don't rely on heroics", desc: "Labor tools, scheduling, feedback loops. I've built the kind of products that save hundreds of thousands of hours so teams can focus on people." },
   ],
 
   education: "B.S. Operations & Information Systems, Northern Illinois University, 2011",
@@ -123,7 +123,7 @@ export const profile = {
       situation: "Time-to-offer was over two weeks. Candidates dropped off, managers were frustrated. I led the product that changed that.",
       results: [
         "Built an AI tool that recommended top candidates and streamlined the process end to end.",
-        "We didn't just optimize for model metrics—we tracked whether managers actually used it and whether offers were accepted.",
+        "We didn't just optimize for model metrics. We tracked whether managers actually used it and whether offers were accepted.",
         "Iterated every week on the signals so the product earned trust instead of feeling like a black box.",
       ],
       metrics: "2 weeks → 24 hours time-to-offer; 50% less drop-off; manager trust 45% → 87%",
@@ -139,7 +139,7 @@ export const profile = {
   productPrinciples: [
     {
       title: "Start with the problem, not the tech",
-      description: "I go where the friction is. At Walmart we didn't assume hiring was slow because of the process—we looked at where candidates dropped and what managers did all day. That's how we got to 24-hour time-to-offer.",
+      description: "I go where the friction is. At Walmart we didn't assume hiring was slow because of the process. We looked at where candidates dropped and what managers did all day. That's how we got to 24-hour time-to-offer.",
       example: "Spent weeks in distribution centers before we built the supply chain app. The best ideas came from watching people work, not from a deck."
     },
     {
@@ -149,12 +149,12 @@ export const profile = {
     },
     {
       title: "AI should fit the workflow",
-      description: "The best AI feels invisible. At JPMorgan we're speeding up onboarding for tens of thousands of hires by making AI helpful where people already are—not by adding another tool to learn.",
+      description: "The best AI feels invisible. At JPMorgan we're speeding up onboarding for tens of thousands of hires by making AI helpful where people already are, not by adding another tool to learn.",
       example: "Ask Sam worked because associates could just talk; they didn't have to open another app or learn a new interface."
     },
     {
       title: "Numbers should tell a story",
-      description: "I like metrics that connect to real outcomes. $15–20M in savings meant 500K+ hours back for HR and ops—that's the story I tell, not just the dollar figure.",
+      description: "I like metrics that connect to real outcomes. $15-20M in savings meant 500K+ hours back for HR and ops. That's the story I tell, not just the dollar figure.",
       example: "When we talk about 2M DAU, we also talk about what those users do: get their schedule, see their performance, get answers. That's what 'impact' means."
     }
   ]
@@ -182,7 +182,7 @@ export const experience = [
     description: "Led end-to-end development of Me@Walmart Supply Chain mobile app",
     achievements: [
       "Built mobile product serving 2M+ Daily Active Users with 80%+ adoption rate",
-      "Led Ask Sam—voice-enabled GenAI assistant across 4,600+ stores; query resolution 5 min → 45 sec, 97% accuracy",
+      "Led Ask Sam, voice-enabled GenAI assistant across 4,600+ stores; query resolution 5 min to 45 sec, 97% accuracy",
       "Architected Labor Management tool saving $15-20M per DC annually; 500K+ manual hours eliminated",
       "Reduced hiring time from 2 weeks to 24 hours with AI-powered hiring tool (50% drop-off reduction, 90% offer acceptance in 24h)",
     ],

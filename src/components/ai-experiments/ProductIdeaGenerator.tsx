@@ -59,7 +59,7 @@ export default function ProductIdeaGenerator() {
     >
       <h2 className="text-2xl font-bold mb-2">Mini Product Idea Generator</h2>
       <p className="text-light/60 mb-4">
-        Enter a problem space or pick a topic. Get 3 product ideas (pre-written—no API). Great for brainstorming.
+        Enter a problem space or pick a topic. Get 3 product ideas (pre-written, no API). Great for brainstorming.
       </p>
 
       <div className="rounded-xl border border-light/10 bg-light/5 p-6">

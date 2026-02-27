@@ -24,7 +24,7 @@ const projects: Project[] = [
     name: 'PlateRater',
     tagline: 'Yelp for individual dishes, not restaurants.',
     story:
-      "I built this in 2013 — before 'vibe coding' was a phrase, before LLMs could write a line of JSX. I was frustrated that Yelp rated restaurants but not the specific dish that made a place worth visiting. A restaurant could be 4 stars overall but their Pho was a 2. I wanted to fix that.",
+      "I built this in 2013, before 'vibe coding' was a phrase, before LLMs could write a line of JSX. I was frustrated that Yelp rated restaurants but not the specific dish that made a place worth visiting. A restaurant could be 4 stars overall but their Pho was a 2. I wanted to fix that.",
     what: [
       'Designed end-to-end UX: onboarding flow, diet preference personalization, dish-level rating system',
       'Built mobile-first with a 3-step preference wizard to reduce drop-off at first use',
@@ -32,7 +32,7 @@ const projects: Project[] = [
       'Shipped Facebook OAuth to reduce sign-up friction (before this was table stakes)',
     ],
     learned:
-      "This was my first real lesson in retention vs. acquisition. The app was easy to sign up for but hard to keep using — we needed content density before social could kick in. Classic cold-start problem. I'd solve it differently today: seed content before launch, not after.",
+      "This was my first real lesson in retention vs. acquisition. The app was easy to sign up for but hard to keep using. We needed content density before social could kick in. Classic cold-start problem. I'd solve it differently today: seed content before launch, not after.",
     outcome: 'Shipped to TestFlight. ~200 beta users across Chicago.',
     images: [
       '/assets/plate-rater/1.jpg',
@@ -51,7 +51,7 @@ const projects: Project[] = [
       '/assets/plate-rater/14.jpg',
       '/assets/plate-rater/15.jpg',
     ],
-    imageCaption: 'Early 2013 build — rough edges intentional. Product thinking was the point.',
+    imageCaption: 'Early 2013 build. Rough edges intentional. Product thinking was the point.',
   },
   {
     id: 'portfolio',
@@ -59,15 +59,15 @@ const projects: Project[] = [
     name: 'This Portfolio',
     tagline: 'Built in a weekend. The AI was my co-pilot, not the author.',
     story:
-      "Most PM portfolios are PDFs. I wanted mine to be a product — something that demonstrates product thinking, not just describes it. I built this using Claude as a coding collaborator, treating it the way I'd treat a junior engineer: with clear specs, iterative feedback, and taste applied at every step.",
+      "Most PM portfolios are PDFs. I wanted mine to be a product, something that demonstrates product thinking, not just describes it. I built this using Claude as a coding collaborator, treating it the way I'd treat a junior engineer: with clear specs, iterative feedback, and taste applied at every step.",
     what: [
-      'Designed the information architecture before writing a line of code — mapped user flows for recruiters vs. hiring managers vs. PMs',
+      'Designed the information architecture before writing a line of code. Mapped user flows for recruiters vs. hiring managers vs. PMs',
       'Used AI to generate component scaffolding, then edited everything by hand to match the design vision',
       'Built a Case Study engine with step-by-step navigation to simulate how a PM thinks through a problem',
-      'Added Command Palette (⌘K), Ask AI (⌘I), offline support, and scroll-triggered animations — treating portfolio as a real product spec',
+      'Added Command Palette (⌘K), Ask AI (⌘I), offline support, and scroll-triggered animations. Treating portfolio as a real product spec',
     ],
     learned:
-      "Working with AI on a real product taught me something important about AI product management: the model is never the moat. The taste, the judgment, the product instinct — those are the moat. The AI made me faster. It didn't make the decisions.",
+      "Working with AI on a real product taught me something important about AI product management: the model is never the moat. The taste, the judgment, the product instinct. Those are the moat. The AI made me faster. It didn't make the decisions.",
     outcome: "You're looking at it.",
     link: '#top',
     linkLabel: "You're already here ↗",
@@ -78,14 +78,14 @@ const projects: Project[] = [
     name: 'Millennial to GenZ Translator',
     tagline: 'A fun experiment in user delight and rapid prototyping.',
     story:
-      "A lighthearted weekend project that became a lesson in viral distribution. Built it in an afternoon using Lovable + AI to help millennials decode GenZ slang — not because the world needed it, but because shipping something fun is a skill too.",
+      "A lighthearted weekend project that became a lesson in viral distribution. Built it in an afternoon using Lovable + AI to help millennials decode GenZ slang. Not because the world needed it, but because shipping something fun is a skill too.",
     what: [
       'Designed for instant delight: input a phrase, get a GenZ translation with tone and context',
       'Used Lovable for rapid no-code prototyping — from idea to live URL in under 4 hours',
       'Optimized for shareability: output designed to be screenshot-worthy and post-able',
     ],
     learned:
-      "Shipping for fun is underrated. The fastest way to sharpen product instincts is to build something with zero stakes. This reminded me that great UX has an emotional component — not everything needs to be enterprise-grade to teach you something.",
+      "Shipping for fun is underrated. The fastest way to sharpen product instincts is to build something with zero stakes. This reminded me that great UX has an emotional component. Not everything needs to be enterprise-grade to teach you something.",
     outcome: 'Live and running. Shared across LinkedIn and Twitter.',
     link: 'https://slang-switcheroo.lovable.app/',
     linkLabel: 'Try it live ↗',

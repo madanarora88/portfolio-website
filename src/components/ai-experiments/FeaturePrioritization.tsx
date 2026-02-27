@@ -155,7 +155,7 @@ export default function FeaturePrioritization() {
                   <li key={fe.id}>{fe.name}</li>
                 ))}
                 {(!byQuadrant[q] || byQuadrant[q].length === 0) && (
-                  <li className="text-light/50">—</li>
+                  <li className="text-light/50">·</li>
                 )}
               </ul>
             </div>

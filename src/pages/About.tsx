@@ -90,7 +90,7 @@ export default function About() {
                 <li key={i} className="flex flex-wrap gap-2 text-light/80">
                   <span className="font-medium text-light">{cert.name}</span>
                   {cert.issuer && (
-                    <span className="text-light/50 text-sm">— {cert.issuer}</span>
+                    <span className="text-light/50 text-sm">from {cert.issuer}</span>
                   )}
                 </li>
               ))}
