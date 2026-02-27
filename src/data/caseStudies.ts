@@ -24,7 +24,7 @@ export const caseStudies: CaseStudy[] = [
     company: "Walmart",
     role: "Principal Product Manager",
     timeline: "2022-2025",
-    summary: "Led end-to-end development of mobile app serving 2M+ Daily Active Users, achieving 80%+ adoption rate among 122K+ supply chain associates.",
+    summary: "I led the product from day one. We built a mobile app that 2M+ people use every day—supply chain and store associates who needed one place for schedules, performance, and tasks. We hit 80%+ adoption because we made it useful, not because we made it mandatory.",
     tags: ["AI/ML", "Mobile", "Scale", "Employee Experience"],
     metrics: [
       { label: "Daily Active Users", value: "2M+" },
@@ -36,7 +36,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Problem",
         subtitle: "Understanding the friction",
-        content: "Supply chain associates were using multiple disconnected systems for performance tracking, scheduling, and task management. Manual processes consumed 500K+ HR hours annually, and lack of real-time visibility created operational inefficiencies. Associate engagement was low due to poor mobile experience."
+        content: "Associates were juggling multiple systems just to see their schedule, check performance, or get tasks. HR was drowning in manual work—we're talking 500K+ hours a year. The mobile experience was an afterthought, and engagement showed it."
       },
       {
         title: "Context",
@@ -46,7 +46,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "My Thinking",
         subtitle: "How I approached the problem",
-        content: "Started with deep user research—spent weeks in distribution centers observing workflows. Identified that associates needed three things: instant access to their performance data, simplified scheduling, and automated incentive calculations. Prioritized mobile-first experience with offline capabilities. Focused on AI/ML for predictive insights rather than reactive reporting."
+        content: "I spent weeks in distribution centers watching how people actually worked. Three things kept coming up: they wanted to see their performance without digging through spreadsheets, they wanted scheduling that didn't feel like a part-time job to understand, and they wanted incentives that calculated themselves. We went mobile-first and made sure it worked offline. For the intelligence layer, we focused on helping people see what was coming, not just what already happened."
       },
       {
         title: "Tradeoffs",
@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Outcome",
         subtitle: "The measurable impact",
-        content: "Achieved 2M+ DAU with 80%+ adoption rate in first year. Automated incentive payouts saving $15-20M per DC annually. Eliminated 500K+ manual HR hours. Improved associate satisfaction scores by 35%. Platform became blueprint for other Walmart internal apps."
+        content: "We hit 2M+ daily active users and 80%+ adoption in the first year. Incentive payouts that used to eat HR time are now automated—$15–20M saved per DC. We took 500K+ manual hours off the table. Associate satisfaction went up 35%. The app became the template for other internal products at Walmart."
       },
       {
         title: "Lessons",
@@ -76,7 +76,7 @@ export const caseStudies: CaseStudy[] = [
     company: "JPMorgan Chase",
     role: "VP Product",
     timeline: "2025-Present",
-    summary: "Transforming global onboarding experience for 50K+ annual hires through AI-driven personalization and automation.",
+    summary: "We're rethinking onboarding for 50K+ hires a year. Instead of one-size-fits-all, we're using AI to personalize the path—so people get to productivity faster and HR spends less time on the same questions.",
     tags: ["AI", "Onboarding", "Enterprise", "Automation"],
     metrics: [
       { label: "Annual Hires Supported", value: "50K+" },
@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Problem",
         subtitle: "The onboarding challenge at scale",
-        content: "JPMorgan Chase hires 50,000+ employees annually across hundreds of roles and locations. Traditional one-size-fits-all onboarding created poor experience, low early engagement, and extended time-to-productivity. HR teams overwhelmed with repetitive questions. New hires struggled to navigate complex systems and find role-specific information."
+        content: "JPMorgan hires 50,000+ people a year across a ton of roles and locations. The old onboarding was the same for everyone—long time-to-productivity, lots of repetitive questions for HR, and new hires lost in a maze of systems. We needed to make it personal without losing scale or compliance."
       },
       {
         title: "Context",
@@ -98,7 +98,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "My Thinking",
         subtitle: "AI as the personalization engine",
-        content: "Realized that AI could provide 1-on-1 onboarding at scale. Key insight: instead of building more features, build intelligence that adapts content to each individual. Started with role-based personalization, then added behavioral learning. Used LLMs for Q&A automation and RAG for knowledge retrieval. Focused on reducing time-to-first-value, not just completion rates."
+        content: "The insight was simple: AI could give people something closer to a 1-on-1 experience at scale. Rather than piling on more generic content, we focused on adapting what each person sees to their role and behavior. We started with role-based personalization, then let the system learn. Q&A and knowledge retrieval are powered by LLMs and RAG, but the north star was time-to-first-value—not just ticking boxes."
       },
       {
         title: "Tradeoffs",
@@ -113,7 +113,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Outcome",
         subtitle: "Transformation at scale",
-        content: "40% reduction in time-to-productivity. 15% improvement in early-tenure retention. 100K+ manual HR hours saved through Q&A automation. 92% new hire satisfaction score (up from 67%). AI assistant handles 80% of routine questions without human intervention. Platform expanded to 30+ business units."
+        content: "Time-to-productivity dropped by 40%. Early retention improved 15%. We've saved 100K+ manual hours by letting the AI handle routine questions—and new hire satisfaction went from 67% to 92%. The assistant handles about 80% of those questions without a human. We've rolled out to 30+ business units and are still expanding."
       },
       {
         title: "Lessons",
@@ -128,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
     company: "Walmart",
     role: "Principal Product Manager",
     timeline: "2023-2024",
-    summary: "Built a new real-time feedback product from scratch for 122K+ supply chain associates, improving activation by 32% and reducing drop-off by 25% in the first 6 months.",
+    summary: "There was no real-time feedback for supply chain associates—just annual reviews and paperwork. We built something from scratch. In six months we improved activation by 32% and cut drop-off by 25%. About 45K associates were using it.",
     tags: ["0→1", "Employee Experience", "Mobile", "AI"],
     metrics: [
       { label: "Activation Improvement", value: "+32%" },
@@ -150,7 +150,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "My Thinking",
         subtitle: "What defines 0→1",
-        content: "0→1 isn't just building something new—it's finding product-market fit in an underserved space. I started with a hypothesis: associates want frequent, lightweight feedback, not annual reviews. Validated through 40+ associate interviews before writing a single line of code. Focused on the smallest unit of value: 'Give one piece of feedback today.'"
+        content: "For me 0→1 means finding fit in a space nobody's really serving. I had a hunch: people want quick, lightweight feedback, not a once-a-year form. We did 40+ interviews before writing code and changed scope three times based on what we heard. The smallest win we aimed for: let someone give one piece of feedback today."
       },
       {
         title: "Tradeoffs",

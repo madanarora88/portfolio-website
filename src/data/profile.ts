@@ -1,8 +1,8 @@
 export const profile = {
   name: "Madan Arora",
   title: "AI Product Manager",
-  tagline: "I design AI products that feel like magic",
-  bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 2M+ users. Known for exceptional product sense, AI transformation expertise, and driving $50M+ in revenue impact.",
+  tagline: "I ship AI products people actually use",
+  bio: "I'm VP of Product at JPMorgan Chase. Before that I led product at Walmart, IBM, and American Airlines—products that ended up in the hands of over 2 million people. I care more about what gets shipped than what gets pitched.",
   
   contact: {
     email: "aroramadan88@gmail.com",
@@ -34,10 +34,10 @@ export const profile = {
   ],
 
   whyHireMe: [
-    "Exceptional product sense—shipped products that 2M+ users adopt daily",
-    "0→1 expertise—built products from idea to scale at Fortune 50 companies",
-    "AI product intuition—turn frontier AI into products people love",
-    "Proven impact—$100M+ revenue, $20M+ savings, 80%+ adoption rates",
+    "I've shipped products that 2M+ people use every day. At Walmart we got to 80% adoption on the supply chain app—not by mandating it, by making it useful.",
+    "I've built things from zero at big companies. The feedback platform I led had no playbook; we interviewed 40+ associates before writing code and hit 32% better activation in six months.",
+    "I treat AI as a product problem, not a tech demo. The hiring tool I built cut time-to-offer from 2 weeks to 24 hours because we obsessed over manager trust, not just model accuracy.",
+    "The numbers I'm proud of: $15–20M saved per DC at Walmart, $100M+ revenue impact at IBM, 50% drop in candidate drop-off. I can walk you through how we got there.",
   ],
 
   sideProjects: [
@@ -77,10 +77,10 @@ export const profile = {
   ],
 
   productsICouldBuild: [
-    { title: "AI-Powered Employee Experience", desc: "Personalized onboarding and feedback at enterprise scale" },
-    { title: "Intelligent Workflow Automation", desc: "Reduce manual work by 50%+ with smart automation" },
-    { title: "0→1 Product from Idea to Launch", desc: "Validate, build, and scale new product lines" },
-    { title: "Product-Led Growth Engine", desc: "Activation, retention, and expansion strategies" },
+    { title: "Employee experience that scales", desc: "I've done onboarding and feedback for 50K+ hires and 2M+ daily users. I know where the friction is and how to fix it." },
+    { title: "AI that earns trust, not just metrics", desc: "At Walmart we got managers to actually use the AI hiring tool by measuring what they did, not just model accuracy. I'd do the same for you." },
+    { title: "New product from idea to launch", desc: "I've taken products from zero to adoption at Fortune 50 companies. Tight scope, fast feedback, and a clear definition of 'done'." },
+    { title: "Operations that don't rely on heroics", desc: "Labor tools, scheduling, feedback loops—I've built the kind of products that save hundreds of thousands of hours so teams can focus on people." },
   ],
 
   education: "B.S. Operations & Information Systems, Northern Illinois University, 2011",
@@ -97,65 +97,65 @@ export const profile = {
   heroStories: [
     {
       title: "Ask Sam",
-      tagline: "Voice GenAI for 4,600+ stores",
-      situation: "Store associates spent 15–20% of their shift searching for product locations and policy details.",
+      tagline: "Voice AI for 4,600+ stores",
+      situation: "Associates were spending a big chunk of their shift just hunting for where things were or what the policy said. We built a voice assistant inside the Me@Walmart app so they could ask out loud.",
       results: [
-        "Led cross-functional team to build voice-enabled GenAI assistant in Me@Walmart",
-        "Implemented RAG to ground responses in real-time inventory; added feedback loops for continuous improvement",
-        "Reduced query resolution from 5 minutes to 45 seconds with 97% accuracy",
+        "Shipped a GenAI assistant grounded in real-time inventory so answers were accurate, not generic.",
+        "Added feedback loops so we could improve from what associates actually asked.",
+        "Query resolution went from about 5 minutes to under a minute, and we hit 97% accuracy.",
       ],
-      metrics: "82% weekly active usage among associates across 4,600+ stores",
+      metrics: "82% of associates used it weekly across 4,600+ stores",
     },
     {
       title: "Scheduling bias fix",
-      tagline: "Responsible AI in workforce tools",
-      situation: "ML-powered scheduling was favoring full-time over part-time workers for premium shifts.",
+      tagline: "Making workforce AI fair",
+      situation: "Our ML scheduling was inadvertently favoring full-timers for the best shifts. Part-timers noticed; we had to fix it.",
       results: [
-        "Ran fairness audits with SHAP values; partnered with Responsible AI on counterfactual fairness checks",
-        "Added transparency so associates see the 'why' behind shift recommendations",
-        "Established continuous monitoring with demographic parity metrics in production",
+        "Ran fairness audits and worked with our Responsible AI team on how we measured bias.",
+        "We made the logic transparent so associates could see why a shift was suggested.",
+        "Put monitoring in place so we'd catch regressions, not just ship and forget.",
       ],
-      metrics: "73% reduction in scheduling bias; 98% shift acceptance; internal innovation award",
+      metrics: "73% reduction in measured bias, 98% shift acceptance, and an internal innovation award",
     },
     {
       title: "AI hiring tool",
-      tagline: "Eval-first AI that managers trust",
-      situation: "Time-to-offer was over 2 weeks; candidates dropped off and managers couldn't fill roles fast enough.",
+      tagline: "Getting to 24-hour time-to-offer",
+      situation: "Time-to-offer was over two weeks. Candidates dropped off, managers were frustrated. I led the product that changed that.",
       results: [
-        "Built AI/ML tool for top-candidate recommendations and streamlined hiring process",
-        "Defined three eval layers: model performance, user behavior (override rates), and business outcomes",
-        "Iterated weekly on signals so the product earned manager trust, not just good model metrics",
+        "Built an AI tool that recommended top candidates and streamlined the process end to end.",
+        "We didn't just optimize for model metrics—we tracked whether managers actually used it and whether offers were accepted.",
+        "Iterated every week on the signals so the product earned trust instead of feeling like a black box.",
       ],
-      metrics: "Time-to-offer 2 weeks → 24 hours; 50% drop-off reduction; 90% offer acceptance in 24h; manager trust 45% → 87%",
+      metrics: "2 weeks → 24 hours time-to-offer; 50% less drop-off; manager trust 45% → 87%",
     },
   ],
 
   howIPrioritize: [
-    "Value vs. effort—I balance customer impact, business value, and effort so we ship what matters first.",
-    "Innovation vs. stability—I allocate most work to core reliability, some to improvements, and a slice to bold bets.",
-    "Eval-first for AI—model metrics alone aren't enough; I track user behavior and business outcomes so AI earns trust.",
+    "I weigh impact, effort, and risk. If it doesn't move a metric that matters to users or the business, it gets deprioritized.",
+    "Most of the roadmap stays on making the core product reliable; a chunk goes to improvements; a small slice to experiments. I've seen too many teams bet everything on the wrong thing.",
+    "For AI products, I care as much about whether people use it and what happens after as I do about accuracy. Model metrics alone don't tell you if you built something that sticks.",
   ],
 
   productPrinciples: [
     {
-      title: "Start with user pain, not technology",
-      description: "The best products solve real problems. I obsess over understanding friction before users can articulate it.",
-      example: "At Walmart, reduced hiring time from 2 weeks to 24 hours by deeply understanding candidate drop-off points."
+      title: "Start with the problem, not the tech",
+      description: "I go where the friction is. At Walmart we didn't assume hiring was slow because of the process—we looked at where candidates dropped and what managers did all day. That's how we got to 24-hour time-to-offer.",
+      example: "Spent weeks in distribution centers before we built the supply chain app. The best ideas came from watching people work, not from a deck."
     },
     {
-      title: "Product sense beats technical skills",
-      description: "Deep empathy for users, sharp problem framing, and instinctive prioritization drive better outcomes than just technical expertise.",
-      example: "Achieved 80%+ adoption rate on 2M+ DAU app through product sense, not just engineering."
+      title: "Adoption is the real test",
+      description: "Shipping isn't enough. We hit 80% adoption on the Walmart app because we made it useful for the daily grind, not because we mandated it. I care about whether people choose to use what we build.",
+      example: "We measured manager trust on the hiring tool every sprint. When override rates dropped and acceptance went up, we knew we'd built something that earned its place."
     },
     {
-      title: "AI amplifies intent, not replaces it",
-      description: "AI should make existing workflows feel inevitable, not add complexity.",
-      example: "GenAI integration at JPMorgan Chase accelerated onboarding for 50K+ hires without disrupting existing processes."
+      title: "AI should fit the workflow",
+      description: "The best AI feels invisible. At JPMorgan we're speeding up onboarding for tens of thousands of hires by making AI helpful where people already are—not by adding another tool to learn.",
+      example: "Ask Sam worked because associates could just talk; they didn't have to open another app or learn a new interface."
     },
     {
-      title: "Metrics tell stories, not just numbers",
-      description: "Every metric should connect to user value and business impact.",
-      example: "$15-20M annual savings isn't just a number—it's 500K+ hours given back to HR teams."
+      title: "Numbers should tell a story",
+      description: "I like metrics that connect to real outcomes. $15–20M in savings meant 500K+ hours back for HR and ops—that's the story I tell, not just the dollar figure.",
+      example: "When we talk about 2M DAU, we also talk about what those users do: get their schedule, see their performance, get answers. That's what 'impact' means."
     }
   ]
 }

@@ -107,6 +107,66 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* Outcomes strip — surface project impact immediately */}
+      <section className="py-12 px-6 border-y border-light/10 bg-light/5">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-center text-light/50 text-sm uppercase tracking-wide mb-8">
+            Experience &amp; outcomes
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {caseStudies.slice(0, 3).map((study) => (
+              <Link
+                key={study.id}
+                to={`/case-studies/${study.id}`}
+                className="block p-5 rounded-xl bg-dark border border-light/10 hover:border-primary/30 transition-colors text-center group"
+              >
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1 group-hover:text-primary/90">
+                  {study.metrics[0]?.value ?? '—'}
+                </div>
+                <div className="text-light/60 text-sm mb-2">{study.metrics[0]?.label ?? ''}</div>
+                <div className="text-light/90 font-medium">{study.company} · {study.title}</div>
+                <span className="inline-block mt-2 text-sm text-primary font-medium group-hover:underline">
+                  Read the case study →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Work — moved up so hiring managers see it first */}
+      <section className="py-24 px-6 bg-dark/50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">Featured Work</h2>
+            <p className="text-light/70 text-lg">
+              Deep dives on how we got to these outcomes
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {caseStudies.slice(0, 2).map((study, index) => (
+              <CaseStudyPreview key={study.id} study={study} index={index} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/case-studies"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg group"
+            >
+              View All Case Studies
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why Companies Hire Me */}
       {profile.whyHireMe && (
         <section className="py-24 px-6">
@@ -119,7 +179,7 @@ const Home = () => {
             >
               <h2 className="text-4xl font-bold mb-4">Why Companies Hire Me</h2>
               <p className="text-light/70 text-lg max-w-2xl mx-auto">
-                What I bring to every product team
+                What I bring to a team—in practice
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -153,9 +213,9 @@ const Home = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold mb-4">Products I Could Build for Your Company</h2>
+              <h2 className="text-4xl font-bold mb-4">What I&apos;ve Built (and Could Build for You)</h2>
               <p className="text-light/70 text-lg max-w-2xl mx-auto">
-                Examples of what I can deliver
+                Types of products I&apos;ve shipped and can do again
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -190,7 +250,7 @@ const Home = () => {
             >
               <h2 className="text-4xl font-bold mb-4">How I&apos;ve Shipped</h2>
               <p className="text-light/70 text-lg max-w-2xl mx-auto">
-                Real impact from idea to launch
+                A few projects and how they landed
               </p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-8">
@@ -230,7 +290,7 @@ const Home = () => {
           >
             <h2 className="text-4xl font-bold mb-4">How I Think</h2>
             <p className="text-light/70 text-lg">
-              Product principles that guide my decision-making. Click to expand.
+              Principles I use when making calls. Click to expand.
             </p>
           </motion.div>
 
@@ -260,39 +320,6 @@ const Home = () => {
               </ul>
             </motion.div>
           )}
-        </div>
-      </section>
-
-      {/* Featured Work */}
-      <section className="py-24 px-6 bg-dark/50">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4">Featured Work</h2>
-            <p className="text-light/70 text-lg">
-              Products that transformed Fortune 50 companies
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {caseStudies.slice(0, 2).map((study, index) => (
-              <CaseStudyPreview key={study.id} study={study} index={index} />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to="/case-studies"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg group"
-            >
-              View All Case Studies
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
         </div>
       </section>
 
