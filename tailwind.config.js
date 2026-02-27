@@ -7,13 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2E75B6',
-        dark: '#0F172A',
-        light: '#F8FAFC',
-        border: '#334155', // subtle border for dark theme
+        primary: '#2563EB',
+        dark: '#FFFFFF',
+        light: '#111827',
+        border: '#E5E7EB',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
       },
       animation: {
         'spin-slow': 'spin 1s linear infinite',
