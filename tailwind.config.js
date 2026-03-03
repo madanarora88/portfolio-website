@@ -8,8 +8,8 @@ export default {
     extend: {
       colors: {
         primary: '#2563EB',
-        dark: '#FFFFFF',
-        light: '#111827',
+        dark: '#0F172A',   // background (Option 1: soft off-white)
+        light: '#F8FAFC',  // text
         border: '#E5E7EB',
       },
       fontFamily: {

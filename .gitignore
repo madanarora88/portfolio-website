@@ -1,0 +1,7 @@
+node_modules
+dist
+.cursor/
+.DS_Store
+# Optional: uncomment if you get "short read" on these (close in editor, then remove)
+# public/assets/plate-rater/README.md
+# public/sw.js
