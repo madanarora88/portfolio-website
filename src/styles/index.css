@@ -2,27 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme variables — theme switcher (P1) */
-:root,
-[data-theme="default"] {
-  --color-dark: #0F172A;
-  --color-light: #F8FAFC;
-  --color-primary: #2563EB;
-  --color-border: #334155;
-}
-[data-theme="cream"] {
-  --color-dark: #FFFBEB;
-  --color-light: #1C1917;
-  --color-primary: #B45309;
-  --color-border: #FDE68A;
-}
-[data-theme="mint"] {
-  --color-dark: #ECFDF5;
-  --color-light: #064E3B;
-  --color-primary: #059669;
-  --color-border: #6EE7B7;
-}
-
 @layer base {
   * {
     @apply border-slate-200;
@@ -31,9 +10,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: var(--color-dark);
-    color: var(--color-light);
-    @apply font-sans antialiased;
+    @apply bg-dark text-light font-sans antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;

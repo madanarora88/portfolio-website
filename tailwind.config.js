@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--color-primary)',
-        dark: 'var(--color-dark)',
-        light: 'var(--color-light)',
-        border: 'var(--color-border)',
+        primary: '#2563EB',
+        dark: '#0F172A',   // background (Option 1: soft off-white)
+        light: '#F8FAFC',  // text
+        border: '#E5E7EB',
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
@@ -18,13 +18,6 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 1s linear infinite',
-        'marquee': 'marquee 25s linear infinite',
-      },
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
       },
       spacing: {
         '18': '4.5rem',

@@ -9,113 +9,102 @@ import WeekendProjectsSection from '../components/sections/WeekendProjectsSectio
 const Home = () => {
   return (
     <div className="min-h-screen bg-dark">
-      {/* Hero Section — text-first, one sharp line + keyword strip + what I'm up to now */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto text-center relative z-10"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-light to-light/80 bg-clip-text text-transparent">
-            {profile.name}
-          </h1>
-          <p className="text-xl md:text-2xl text-light/90 mb-3 font-medium">
-            {profile.heroLine}
-          </p>
-          <p className="text-primary font-semibold mb-2 tracking-wide">
-            {profile.keywordStrip}
-          </p>
-          {profile.whatsUpNow && (
-            <p className="text-light/70 text-sm md:text-base max-w-2xl mx-auto mb-8">
-              What I&apos;m up to now: {profile.whatsUpNow}
-            </p>
-          )}
           <motion.div
-            initial={{ scale: 0.95 }}
+            initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
             className="mb-8"
           >
             <img
               src="/assets/madan-photo.jpg"
               alt={profile.name}
-              width={160}
-              height={160}
+              width={224}
+              height={224}
               fetchPriority="high"
-              className="w-32 h-32 sm:w-36 sm:h-36 rounded-full mx-auto border-4 border-primary/20 object-cover object-[center_15%]"
+              className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full mx-auto mb-6 border-4 border-primary/20 object-cover object-[center_15%] sm:object-[center_25%]"
             />
           </motion.div>
-          {profile.philosophyQuote && (
-            <p className="text-light/80 italic max-w-xl mx-auto mb-8 text-lg">
-              &ldquo;{profile.philosophyQuote}&rdquo;
-            </p>
-          )}
-          {/* One-line stats (S2) */}
-          <p className="text-light/60 text-sm mb-8">
-            {profile.stats.yearsExperience} years · {profile.stats.dailyActiveUsers} users · {profile.stats.revenueImpact} revenue impact · {profile.stats.costSavings} savings
+
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-light to-light/60 bg-clip-text text-transparent">
+            {profile.name}
+          </h1>
+          
+          <p className="text-2xl md:text-3xl text-light/80 mb-4">
+            {profile.title}
           </p>
-          {/* Stat cards (S3) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-10">
-            <StatCard icon={Briefcase} label="Years shipping" value={profile.stats.yearsExperience} />
-            <StatCard icon={Users} label="Daily active users" value={profile.stats.dailyActiveUsers} />
-            <StatCard icon={TrendingUp} label="Revenue influenced" value={profile.stats.revenueImpact} />
-            <StatCard icon={Award} label="Annual savings" value={profile.stats.costSavings} />
+          
+          <p className="text-xl md:text-2xl text-primary font-medium mb-12">
+            {profile.tagline}
+          </p>
+          
+          <p className="text-lg text-light/70 max-w-3xl mx-auto mb-12">
+            {profile.bio}
+          </p>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
+            <StatCard icon={Briefcase} label="Years Experience" value={profile.stats.yearsExperience} />
+            <StatCard icon={Users} label="Daily Active Users" value={profile.stats.dailyActiveUsers} />
+            <StatCard icon={TrendingUp} label="Revenue Impact" value={profile.stats.revenueImpact} />
+            <StatCard icon={Award} label="Annual Savings" value={profile.stats.costSavings} />
           </div>
-          {/* CTAs — primary: See the work, secondary: Let's chat (T1) */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/case-studies"
               className="px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 group"
             >
-              See the work
+              View My Work
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              to="/contact"
-              className="px-8 py-4 border-2 border-primary hover:bg-primary/10 text-light rounded-lg font-semibold transition-all"
+              to="/simulator"
+              className="px-8 py-4 border-2 border-primary hover:bg-primary/10 text-light rounded-lg font-semibold transition-all flex items-center justify-center gap-2 group"
             >
-              Let&apos;s chat
+              See How I Think
+              <Lightbulb className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </Link>
             <Link
-              to="/simulator"
-              className="px-8 py-4 border border-light/20 hover:border-light/40 hover:bg-light/5 text-light rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+              to="/contact"
+              className="px-8 py-4 border-2 border-light/20 hover:border-light/40 hover:bg-light/5 text-light rounded-lg font-semibold transition-all"
             >
-              <Lightbulb className="w-5 h-5" />
-              See how I think
+              Get In Touch
             </Link>
             <a
               href="/assets/Resume/resume.pdf"
               download="Madan_Arora_Resume.pdf"
-              className="px-8 py-4 border border-light/20 hover:border-light/40 hover:bg-light/5 text-light rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+              className="px-8 py-4 border-2 border-light/20 hover:border-light/40 hover:bg-light/5 text-light rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
               Resume
             </a>
           </div>
-          {/* Trusted by (S4) */}
-          <div className="mt-16">
-            <p className="text-light/50 text-sm uppercase tracking-wide mb-4">
-              Trusted by
+
+          {/* Companies */}
+          <div className="mt-20">
+            <p className="text-light/50 text-sm uppercase tracking-wide mb-6">
+              Trusted by Fortune 50 Companies
             </p>
-            <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+            <div className="flex flex-wrap justify-center gap-8 opacity-60">
               {profile.companies.map((company) => (
-                <span key={company} className="text-light/70 font-medium">
+                <span key={company} className="text-light/70 font-medium text-lg">
                   {company}
                 </span>
               ))}
             </div>
           </div>
         </motion.div>
-      </section>
-
-      {/* Marquee strip (S1) */}
-      <section className="py-4 border-y border-light/10 bg-light/5 overflow-hidden">
-        <div className="flex w-max animate-marquee">
-          <MarqueeRow stats={profile.stats} />
-          <MarqueeRow stats={profile.stats} />
-        </div>
       </section>
 
       {/* Outcomes strip — surface project impact immediately */}
@@ -145,7 +134,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Work grid with hover (W1) + See the work CTA (W5) */}
+      {/* Featured Work — moved up so hiring managers see it first */}
       <section className="py-24 px-6 bg-dark/50">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -154,51 +143,24 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">See the work</h2>
+            <h2 className="text-4xl font-bold mb-4">Featured Work</h2>
             <p className="text-light/70 text-lg">
               Deep dives on how we got to these outcomes
             </p>
           </motion.div>
 
-          {/* Compact work grid — hover reveals category/tags */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {caseStudies.map((study, index) => (
-              <Link key={study.id} to={`/case-studies/${study.id}`}>
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -4 }}
-                  className="group p-5 rounded-xl bg-light/5 border border-light/10 hover:border-primary/30 transition-all h-full"
-                >
-                  <div className="text-light/50 text-xs mb-1">{study.company} · {study.timeline}</div>
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                    {study.title}
-                  </h3>
-                  <p className="text-light/60 text-sm line-clamp-2 mb-3">{study.summary}</p>
-                  <div className="flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {study.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              </Link>
+          <div className="grid md:grid-cols-2 gap-8">
+            {caseStudies.slice(0, 2).map((study, index) => (
+              <CaseStudyPreview key={study.id} study={study} index={index} />
             ))}
           </div>
 
-          <p className="text-center text-light/40 text-sm mb-6">
-            Hover cards to see tags — or click through to the full case study.
-          </p>
-          <div className="text-center">
+          <div className="text-center mt-12">
             <Link
               to="/case-studies"
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg group"
-              title="What happens when you hover? You get tags. Click for the full story."
             >
-              See the work
+              View All Case Studies
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -241,7 +203,7 @@ const Home = () => {
         </section>
       )}
 
-      {/* Capabilities — I own the full product stack (C1, C2, C4) */}
+      {/* Products I Could Build */}
       {profile.productsICouldBuild && (
         <section className="py-24 px-6 bg-dark/50">
           <div className="max-w-6xl mx-auto">
@@ -251,9 +213,9 @@ const Home = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold mb-4">I own the full product stack</h2>
+              <h2 className="text-4xl font-bold mb-4">What I&apos;ve Built (and Could Build for You)</h2>
               <p className="text-light/70 text-lg max-w-2xl mx-auto">
-                From 0→1 to scale — what I&apos;ve shipped and can build for you
+                Types of products I&apos;ve shipped and can do again
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -265,18 +227,10 @@ const Home = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
                   whileHover={{ scale: 1.02 }}
-                  className="group relative p-6 rounded-xl bg-light/5 border border-light/10 hover:border-primary/30 transition-colors"
+                  className="p-6 rounded-xl bg-light/5 border border-light/10 hover:border-primary/30 transition-colors"
                 >
-                  <span className="text-light/40 font-mono text-sm">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="text-xl font-bold mb-2 mt-1">{product.title}</h3>
-                  <p className="text-light/70 text-sm mb-3">{product.desc}</p>
-                  {'keywords' in product && product.keywords && (
-                    <p className="text-primary/90 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      {product.keywords}
-                    </p>
-                  )}
+                  <h3 className="text-xl font-bold mb-2">{product.title}</h3>
+                  <p className="text-light/70">{product.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -321,17 +275,6 @@ const Home = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Philosophy quote section (P2) */}
-      {profile.philosophyQuote && (
-        <section className="py-16 px-6 border-y border-light/10 bg-light/5">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xl md:text-2xl text-light/90 italic">
-              &ldquo;{profile.philosophyQuote}&rdquo;
-            </p>
           </div>
         </section>
       )}
@@ -401,23 +344,6 @@ const Home = () => {
     </div>
   )
 }
-
-// Marquee row (duplicated for seamless loop)
-const MarqueeRow = ({ stats }: { stats: typeof profile.stats }) => (
-  <div className="flex shrink-0 items-center gap-12 px-12 text-light/60 text-sm font-medium whitespace-nowrap">
-    <span>{stats.yearsExperience} years shipping</span>
-    <span>·</span>
-    <span>{stats.dailyActiveUsers} daily users</span>
-    <span>·</span>
-    <span>{stats.revenueImpact} revenue impact</span>
-    <span>·</span>
-    <span>{stats.costSavings} savings</span>
-    <span>·</span>
-    <span>Fortune 50</span>
-    <span>·</span>
-    <span>AI &amp; 0→1</span>
-  </div>
-)
 
 // Helper Components
 const StatCard = ({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) => (

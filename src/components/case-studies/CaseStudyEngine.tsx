@@ -112,10 +112,9 @@ export default function CaseStudyEngine({ study }: CaseStudyEngineProps) {
           </button>
         </div>
 
-        {/* The Outcome — metrics (W2, W3) */}
+        {/* Metrics summary */}
         <div className="mt-16 pt-12 border-t border-light/10">
-          <h3 className="text-xl font-bold mb-2">The Outcome</h3>
-          <p className="text-light/60 text-sm mb-6">Measurable impact</p>
+          <h3 className="text-lg font-semibold mb-6">Outcome metrics</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {study.metrics.map((m) => (
               <div key={m.label}>
@@ -125,25 +124,6 @@ export default function CaseStudyEngine({ study }: CaseStudyEngineProps) {
             ))}
           </div>
         </div>
-
-        {/* Tags at bottom (W4) */}
-        <div className="mt-10 flex flex-wrap gap-2">
-          {study.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-light/10 text-light/80 text-sm rounded-full border border-light/10"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <Link
-          to="/case-studies"
-          className="inline-flex items-center gap-2 mt-8 text-primary hover:text-primary/80 font-medium text-sm"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to See the work
-        </Link>
       </div>
     </div>
   )

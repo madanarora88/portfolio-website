@@ -11,11 +11,9 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {profile.contactHeadline ?? 'Get In Touch'}
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
           <p className="text-lg text-light/70">
-            {profile.contactSubline ?? 'Open to roles and conversations about product, AI, and 0→1 building'}
+            Open to roles and conversations about product, AI, and 0→1 building
           </p>
         </motion.div>
         <motion.div
