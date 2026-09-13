@@ -2,14 +2,6 @@ export const profile = {
   name: "Madan Arora",
   title: "AI Product Manager",
   tagline: "I design AI products that feel like magic",
-  /** One sharp hero line (who you are + what you do) */
-  heroLine: "VP of Product at JPMorgan Chase — I ship AI products that scale to millions.",
-  /** Keyword strip under hero (e.g. AI • 0→1 • Enterprise) */
-  keywordStrip: "AI • 0→1 • Enterprise • 2M+ Users",
-  /** "What I'm up to now" — current focus in one sentence */
-  whatsUpNow: "At JPMorgan, leading conversational AI for personalized benefits so 350K employees can securely get health, enrollment, wellness, and rewards answers.",
-  /** Philosophy quote for hero or dedicated section */
-  philosophyQuote: "I treat AI as a product problem, not a tech demo.",
   bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 2M+ users. Known for exceptional product sense, AI transformation expertise, and driving $50M+ in revenue impact.",
   
   contact: {
@@ -85,15 +77,12 @@ export const profile = {
   ],
 
   productsICouldBuild: [
-    { title: "Employee experience that scales", desc: "I've done onboarding for 50K+ hires, feedback for 2M+ daily users, and now personalized benefits for 350K employees. I know where the friction is and how to fix it.", keywords: "Benefits · Onboarding · 350K employees" },
-    { title: "AI that earns trust, not just metrics", desc: "At Walmart we got managers to actually use the AI hiring tool by measuring what they did, not just model accuracy. I'd do the same for you.", keywords: "AI · Trust · Manager adoption" },
-    { title: "New product from idea to launch", desc: "I've taken products from zero to adoption at Fortune 50 companies. Tight scope, fast feedback, and a clear definition of 'done'.", keywords: "0→1 · Fortune 50 · Ship" },
-    { title: "Operations that don't rely on heroics", desc: "Labor tools, scheduling, feedback loops. I've built the kind of products that save hundreds of thousands of hours so teams can focus on people.", keywords: "Labor · Scheduling · $15–20M saved" },
+    { title: "Employee experience that scales", desc: "I've done onboarding and feedback for 50K+ hires and 2M+ daily users. I know where the friction is and how to fix it." },
+    { title: "AI that earns trust, not just metrics", desc: "At Walmart we got managers to actually use the AI hiring tool by measuring what they did, not just model accuracy. I'd do the same for you." },
+    { title: "New product from idea to launch", desc: "I've taken products from zero to adoption at Fortune 50 companies. Tight scope, fast feedback, and a clear definition of 'done'." },
+    { title: "Operations that don't rely on heroics", desc: "Labor tools, scheduling, feedback loops. I've built the kind of products that save hundreds of thousands of hours so teams can focus on people." },
   ],
-  /** Contact section copy */
-  contactHeadline: "Ready when you are.",
-  contactSubline: "Hiring, fractional PM, or just want to talk product — I typically respond within 24 hours.",
-  builtBy: "Built by Madan with React, Vite & product thinking.",
+
   education: "B.S. Operations & Information Systems, Northern Illinois University, 2011",
 
   certifications: [
@@ -106,17 +95,6 @@ export const profile = {
   ],
 
   heroStories: [
-    {
-      title: "Personalized benefits AI",
-      tagline: "Conversation, not another portal",
-      situation: "JPMorgan employees already have health, enrollment, wellness, and rewards programs. The hard part was the maze of portals and the call center. I am leading conversational AI so 350K employees get a secure answer in one place.",
-      results: [
-        "Designed for 100% of questions answered without a human, so volume deflects from the call center.",
-        "Replaced multiple benefits portals with one conversational experience for enrollment and answers.",
-        "Held the model to 99% accuracy, and treated trust, opt-in, and whether people still call as the real product metrics.",
-      ],
-      metrics: "100% questions without a human · one place vs multiple portals · 99% accuracy · 350K employees",
-    },
     {
       title: "Ask Sam",
       tagline: "Voice AI for 4,600+ stores",
@@ -171,7 +149,7 @@ export const profile = {
     },
     {
       title: "AI should fit the workflow",
-      description: "The best AI feels invisible. At JPMorgan we're putting conversational AI in the benefits journey so 350K employees can ask about health, enrollment, wellness, and rewards instead of learning another portal.",
+      description: "The best AI feels invisible. At JPMorgan we're speeding up onboarding for tens of thousands of hires by making AI helpful where people already are, not by adding another tool to learn.",
       example: "Ask Sam worked because associates could just talk; they didn't have to open another app or learn a new interface."
     },
     {
@@ -188,13 +166,13 @@ export const experience = [
     title: "VP Product, Omni Channel Employee Experience",
     period: "May 2025 - Present",
     location: "Remote",
-    description: "Leading AI-powered personalized benefits and omni-channel employee experience at JPMorgan",
+    description: "Leading global onboarding product strategy supporting 50K+ annual hires",
     achievements: [
-      "Leading conversational AI for personalized benefits (health, enrollment, wellness, rewards) for 350K employees: 100% of questions answered without a human, 99% model accuracy, multiple portals collapsed into one place",
-      "Driving strategy across product, data governance, privacy, engineering, content, and change management so personalization meets regulatory, security, and employee data protection requirements",
-      "Owning global onboarding product strategy supporting 50K+ annual hires, with AI personalization to speed time-to-productivity"
+      "Driving AI-driven personalization to accelerate time-to-productivity",
+      "Enhanced omni-channel performance feedback experience",
+      "Leveraging AI/ML to reduce operational friction"
     ],
-    impact: "350K employees · 100% questions without a human · 99% accuracy"
+    impact: "50K+ annual hires supported"
   },
   {
     company: "Walmart Inc.",
