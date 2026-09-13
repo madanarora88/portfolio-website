@@ -14,7 +14,9 @@ export default function Layout() {
   const location = useLocation()
   const matches = useMatches()
   const isNotFound = matches.some(
-    (m) => m.params != null && Object.prototype.hasOwnProperty.call(m.params, '*')
+    (m) =>
+      m.route.path === '*' ||
+      (m.params != null && Object.prototype.hasOwnProperty.call(m.params, '*'))
   )
 
   // Scroll to top when the route changes so every page loads from the top
