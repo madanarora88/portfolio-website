@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { useCommandPaletteStore } from '../../stores/commandPaletteStore'
 import { useAskAIStore } from '../../stores/askAIStore'
+import { useTheme, type ThemeId } from '../../contexts/ThemeContext'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -16,10 +17,18 @@ const navLinks = [
   { to: '/contact', label: 'Contact' },
 ]
 
+const THEMES: { id: ThemeId; label: string }[] = [
+  { id: 'default', label: 'Default' },
+  { id: 'cream', label: 'Cream' },
+  { id: 'mint', label: 'Mint' },
+]
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [themeOpen, setThemeOpen] = useState(false)
   const openCommandPalette = useCommandPaletteStore((s) => s.open)
   const openAskAI = useAskAIStore((s) => s.open)
+  const { theme, setTheme } = useTheme()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-md border-b border-light/5">
@@ -32,7 +41,40 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
+          {/* Theme switcher — Pick a vibe (P1) */}
+          <div className="relative">
+            <button
+              onClick={() => setThemeOpen((o) => !o)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-light/10 hover:border-light/20 text-light/70 hover:text-light text-sm transition-colors"
+              aria-label="Pick a vibe"
+            >
+              Pick a vibe <ChevronDown className={`w-4 h-4 transition-transform ${themeOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <AnimatePresence>
+              {themeOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  className="absolute top-full left-0 mt-1 py-1 rounded-lg bg-dark border border-light/10 shadow-xl z-50 min-w-[120px]"
+                >
+                  {THEMES.map((t) => (
+                    <button
+                      key={t.id}
+                      onClick={() => {
+                        setTheme(t.id)
+                        setThemeOpen(false)
+                      }}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-light/10 ${theme === t.id ? 'text-primary font-medium' : 'text-light/80'}`}
+                    >
+                      {t.label} {theme === t.id ? '✓' : ''}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           {navLinks.map((link) => (
             <Link
               key={link.to}

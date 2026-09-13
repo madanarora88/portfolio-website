@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet, useLocation, useMatches } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Header from './Header'
 import Footer from './Footer'
@@ -12,6 +12,12 @@ const pageVariants = {
 
 export default function Layout() {
   const location = useLocation()
+  const matches = useMatches()
+  const isNotFound = matches.some(
+    (m) =>
+      m.route.path === '*' ||
+      (m.params != null && Object.prototype.hasOwnProperty.call(m.params, '*'))
+  )
 
   // Scroll to top when the route changes so every page loads from the top
   useEffect(() => {
@@ -20,6 +26,15 @@ export default function Layout() {
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [location.pathname])
+
+  // 404 + Tetris: full viewport, no chrome (catch-all route path is '*')
+  if (isNotFound) {
+    return (
+      <div className="min-h-screen bg-dark text-light">
+        <Outlet />
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-dark text-light flex flex-col">

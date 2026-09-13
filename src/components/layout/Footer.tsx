@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 pt-8 border-t border-light/5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-light/40 text-sm">
-            © {new Date().getFullYear()} {profile.name}. Built with product thinking.
+            © {new Date().getFullYear()} {profile.name}. {profile.builtBy ?? 'Built with product thinking.'}
           </p>
           <div className="flex gap-6">
             {profile.links.tedTalk && (
