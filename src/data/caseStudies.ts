@@ -19,6 +19,58 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: "jpmorgan-personalized-benefits",
+    title: "AI-Powered Personalized Benefits",
+    company: "JPMorgan Chase",
+    role: "VP Product",
+    timeline: "2025-Present",
+    summary: "I'm leading conversational AI for benefits at JPMorgan so 350K employees get health, enrollment, wellness, and rewards answers in one place instead of bouncing across multiple portals. The bar is 100% of questions answered without a human, and 99% model accuracy.",
+    tags: ["AI", "Benefits", "Privacy", "Enterprise", "Conversational AI"],
+    metrics: [
+      { label: "Questions answered without a human", value: "100%" },
+      { label: "Benefits experience", value: "Multiple portals → one place" },
+      { label: "Model accuracy", value: "99%" },
+      { label: "Employees in scope", value: "350K" }
+    ],
+    steps: [
+      {
+        title: "Problem",
+        subtitle: "Benefits that people cannot find",
+        content: "Employees already have health, enrollment, wellness, and rewards programs. The friction is the maze: multiple portals, PDFs, and a call center for questions that should take seconds. That does not scale to 350K people with different plans and life events. I am building one conversational place that answers the question without sending someone to another site or a phone queue."
+      },
+      {
+        title: "Context",
+        subtitle: "Enterprise AI with real stakes",
+        content: "This is healthcare and financial wellbeing inside a regulated bank. Personalization only works if data governance, privacy, security, and employee data protection are designed in from day one. The product has to work across product, data, engineering, content, and change management, not just a model in a demo."
+      },
+      {
+        title: "My Thinking",
+        subtitle: "Conversation as the interface, trust as the product",
+        content: "The north star is not a chatbot. It is one place to finish enrollment and get a trustworthy answer. Conversation is how we collapse multiple portals. The model has to be 99% accurate because a wrong benefits answer is worse than no answer. Accuracy is the floor. Trust is whether people actually ask, opt in, and stop calling the center. I treat privacy, content, and change management as product requirements, not legal afterthoughts."
+      },
+      {
+        title: "Tradeoffs",
+        subtitle: "What we will not skip",
+        content: "Personalization vs privacy: privacy-first, with only the data we can justify. Speed vs security review: security and regulatory bar first, even if launch takes longer. Broad knowledge vs grounded answers: only answer from approved content and systems of record. Chat everywhere vs a few high-intent journeys: start where employees already get stuck (enrollment, coverage, wellness, rewards)."
+      },
+      {
+        title: "Decision",
+        subtitle: "How we are building it",
+        content: "Lead the strategy across product, data governance, privacy, engineering, content, and change management. One conversational surface for health, enrollment, wellness, and rewards so employees stop hopping portals. Contain every question without a human handoff unless the answer is not grounded. Hold accuracy at 99% and still measure trust: do people opt in, and do they stop calling."
+      },
+      {
+        title: "Outcome",
+        subtitle: "The measurable impact",
+        content: "350K employees in scope. 100% of questions answered without a human, which is how we deflect the call center. Enrollment and time-to-answer improve because the job is one place instead of multiple portals. Model accuracy is 99%. That number matters, but it is not the product: the product is whether people trust it enough to ask about health and money here instead of picking up the phone."
+      },
+      {
+        title: "Lessons",
+        subtitle: "What this work is already teaching",
+        content: "In benefits, a wrong answer is worse than no answer, which is why 99% accuracy is a requirement, not a slide. Containment (100% without a human) only counts if the answer is grounded. Unifying portals is the user-facing win; privacy and change management are why people will actually use one place. The PM job is orchestration across privacy, engineering, content, and comms, not prompt writing."
+      }
+    ]
+  },
+  {
     id: "walmart-supply-chain",
     title: "Building Me@Walmart Supply Chain App",
     company: "Walmart",
