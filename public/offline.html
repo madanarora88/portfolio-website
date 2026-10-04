@@ -16,7 +16,7 @@
       justify-content: center;
       padding: 20px;
     }
-    .container { max-width: 600px; text-align: center; }
+    .container { max-width: 640px; width: 100%; text-align: center; }
     .emoji {
       font-size: 120px;
       animation: float 3s ease-in-out infinite;
@@ -46,23 +46,58 @@
       background: rgba(248, 250, 252, 0.05);
       border: 2px solid rgba(248, 250, 252, 0.1);
       border-radius: 16px;
-      padding: 32px;
+      padding: 24px;
       margin-bottom: 32px;
       backdrop-filter: blur(10px);
     }
     .game-container h2 {
-      font-size: 24px;
-      margin-bottom: 16px;
+      font-size: 22px;
+      margin-bottom: 8px;
       color: #f8fafc;
     }
-    .click-counter {
-      font-size: 72px;
-      font-weight: 800;
+    .game-container > p {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: rgba(248, 250, 252, 0.55);
+    }
+    .runner-scores {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .runner-scores .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(248, 250, 252, 0.5);
+      margin-bottom: 2px;
+    }
+    .runner-scores .value {
+      font-size: 22px;
+      font-weight: 700;
       background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin: 20px 0;
+    }
+    #gameCanvas {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      background: rgba(248, 250, 252, 0.04);
+      border: 1px solid rgba(248, 250, 252, 0.12);
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+    .runner-hint {
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(248, 250, 252, 0.45);
     }
     button {
       background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
@@ -82,33 +117,6 @@
       box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
     }
     button:active { transform: scale(0.95); }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .stat {
-      background: rgba(248, 250, 252, 0.05);
-      border: 1px solid rgba(248, 250, 252, 0.1);
-      border-radius: 12px;
-      padding: 20px 16px;
-    }
-    .stat-value {
-      font-size: 32px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 4px;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: rgba(248, 250, 252, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
     .retry { margin-top: 32px; font-size: 14px; color: rgba(248, 250, 252, 0.5); }
     .retry-btn {
       background: rgba(248, 250, 252, 0.1);
@@ -125,31 +133,6 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.1); }
     }
-    .message {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 24px;
-      display: none;
-      animation: slideIn 0.5s ease;
-    }
-    .message.show { display: block; }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: #3b82f6;
-      position: absolute;
-      animation: confetti-fall 3s linear;
-    }
-    @keyframes confetti-fall {
-      to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
     .online-notice {
       background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
       border: 2px solid rgba(16, 185, 129, 0.4);
@@ -164,35 +147,25 @@
   <div class="container">
     <div class="emoji">📡</div>
     <h1>You're Offline!</h1>
-    <p>Looks like you've lost connection. But don't worry—let's make this fun while you wait...</p>
+    <p>Looks like you've lost connection. Here's something to do while you wait.</p>
 
     <div class="game-container">
-      <h2>📊 Build Metrics While Offline</h2>
-      <p style="font-size: 16px; margin-bottom: 20px; color: rgba(248, 250, 252, 0.6);">
-        Every great product manager tracks metrics. Let's build yours!
-      </p>
+      <h2>🦖 Jump while you wait</h2>
+      <p>Press Space, tap, or click to jump over the obstacles.</p>
 
-      <button id="clickBtn" onclick="incrementClicks()">🚀 Click to Generate DAU</button>
-
-      <div class="click-counter" id="counter">0</div>
-      <div style="color: rgba(248, 250, 252, 0.5); font-size: 14px;">Daily Active Clicks</div>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-value" id="growth">+0%</div>
-          <div class="stat-label">Growth</div>
+      <div class="runner-scores">
+        <div>
+          <div class="label">Score</div>
+          <div class="value" id="score">0</div>
         </div>
-        <div class="stat">
-          <div class="stat-value" id="revenue">$0</div>
-          <div class="stat-label">ARR</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value" id="impact">0x</div>
-          <div class="stat-label">Impact</div>
+        <div>
+          <div class="label">Best</div>
+          <div class="value" id="best">0</div>
         </div>
       </div>
 
-      <div id="milestone" class="message"></div>
+      <canvas id="gameCanvas" width="560" height="180"></canvas>
+      <div class="runner-hint" id="runnerHint">Press Space / tap to start</div>
     </div>
 
     <div class="retry" id="retrySection">
@@ -203,66 +176,188 @@
   </div>
 
   <script>
-    var clicks = 0;
+    (function () {
+      var canvas = document.getElementById('gameCanvas');
+      var ctx = canvas.getContext('2d');
+      var scoreEl = document.getElementById('score');
+      var bestEl = document.getElementById('best');
+      var hintEl = document.getElementById('runnerHint');
 
-    function createConfetti() {
-      var colors = ['#3b82f6', '#06b6d4', '#8b5cf6', '#ec4899'];
-      for (var i = 0; i < 30; i++) {
-        (function(idx) {
-          setTimeout(function() {
-            var confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.animationDelay = Math.random() * 0.5 + 's';
-            document.body.appendChild(confetti);
-            setTimeout(function() { confetti.remove(); }, 3000);
-          }, idx * 50);
-        })(i);
-      }
-    }
+      var W = canvas.width;
+      var H = canvas.height;
+      var GROUND_Y = H - 24;
 
-    function incrementClicks() {
-      clicks++;
-      document.getElementById('counter').textContent = clicks;
+      var BEST_KEY = 'offlineRunnerBest';
+      var best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10);
+      bestEl.textContent = best;
 
-      var growth = clicks * 10;
-      var revenue = clicks * 100000;
-      var impact = (clicks / 10).toFixed(1);
+      var state = 'ready'; // ready | playing | gameover
+      var score = 0;
+      var speed = 0;
+      var baseSpeed = 220; // px/sec
+      var gravity = 2200; // px/sec^2
+      var jumpVelocity = -720; // px/sec
 
-      document.getElementById('growth').textContent = '+' + growth + '%';
-      document.getElementById('revenue').textContent = '$' + revenue.toLocaleString();
-      document.getElementById('impact').textContent = impact + 'x';
+      var player = { x: 40, y: GROUND_Y - 30, w: 30, h: 30, vy: 0, onGround: true };
+      var obstacles = [];
+      var nextSpawnIn = 0;
+      var lastTime = null;
 
-      var milestone = document.getElementById('milestone');
-      var message = '';
-
-      if (clicks === 5) {
-        message = '🎉 PMF Achieved! You now have product-market fit.';
-      } else if (clicks === 10) {
-        message = '🚀 Series A Funded! VCs are impressed with your traction.';
-        createConfetti();
-      } else if (clicks === 20) {
-        message = '🦄 Unicorn Status! $1B valuation reached.';
-        createConfetti();
-      } else if (clicks === 30) {
-        message = '📈 IPO Time! You built a generational company.';
-        createConfetti();
-      } else if (clicks === 50) {
-        message = '👑 Legendary PM! You have exceptional product sense.';
-        createConfetti();
+      function resetGame() {
+        score = 0;
+        speed = baseSpeed;
+        player.y = GROUND_Y - player.h;
+        player.vy = 0;
+        player.onGround = true;
+        obstacles = [];
+        nextSpawnIn = randRange(700, 1300);
+        scoreEl.textContent = '0';
       }
 
-      if (message) {
-        milestone.textContent = message;
-        milestone.classList.add('show');
-        setTimeout(function() { milestone.classList.remove('show'); }, 4000);
+      function randRange(min, max) {
+        return min + Math.random() * (max - min);
       }
 
-      var btn = document.getElementById('clickBtn');
-      btn.style.transform = 'scale(0.95)';
-      setTimeout(function() { btn.style.transform = 'scale(1)'; }, 100);
-    }
+      function jump() {
+        if (state === 'ready') {
+          resetGame();
+          state = 'playing';
+          hintEl.textContent = '';
+          lastTime = null;
+          requestAnimationFrame(loop);
+          return;
+        }
+        if (state === 'gameover') {
+          resetGame();
+          state = 'playing';
+          hintEl.textContent = '';
+          lastTime = null;
+          requestAnimationFrame(loop);
+          return;
+        }
+        if (state === 'playing' && player.onGround) {
+          player.vy = jumpVelocity;
+          player.onGround = false;
+        }
+      }
+
+      function spawnObstacle() {
+        var h = randRange(20, 36);
+        var w = randRange(16, 26);
+        obstacles.push({ x: W + w, y: GROUND_Y - h, w: w, h: h, emoji: Math.random() < 0.5 ? '🌵' : '🪨' });
+      }
+
+      function update(dt) {
+        // physics
+        player.vy += gravity * dt;
+        player.y += player.vy * dt;
+        if (player.y >= GROUND_Y - player.h) {
+          player.y = GROUND_Y - player.h;
+          player.vy = 0;
+          player.onGround = true;
+        }
+
+        // speed ramps up slowly with score
+        speed = baseSpeed + Math.min(score, 600) * 0.35;
+
+        // spawn
+        nextSpawnIn -= dt * 1000;
+        if (nextSpawnIn <= 0) {
+          spawnObstacle();
+          nextSpawnIn = randRange(650, 1400) - Math.min(score, 500);
+          if (nextSpawnIn < 450) nextSpawnIn = 450;
+        }
+
+        // move obstacles
+        for (var i = obstacles.length - 1; i >= 0; i--) {
+          obstacles[i].x -= speed * dt;
+          if (obstacles[i].x + obstacles[i].w < 0) {
+            obstacles.splice(i, 1);
+          }
+        }
+
+        // score by distance survived
+        score += dt * 60;
+        scoreEl.textContent = Math.floor(score);
+
+        // collisions
+        var px = player.x + 4, py = player.y + 4, pw = player.w - 8, ph = player.h - 8;
+        for (var j = 0; j < obstacles.length; j++) {
+          var o = obstacles[j];
+          var ox = o.x + 3, oy = o.y + 3, ow = o.w - 6, oh = o.h - 6;
+          if (px < ox + ow && px + pw > ox && py < oy + oh && py + ph > oy) {
+            gameOver();
+            break;
+          }
+        }
+      }
+
+      function gameOver() {
+        state = 'gameover';
+        var finalScore = Math.floor(score);
+        if (finalScore > best) {
+          best = finalScore;
+          localStorage.setItem(BEST_KEY, String(best));
+          bestEl.textContent = best;
+        }
+        hintEl.textContent = 'Game over — press Space / tap to try again';
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        // ground line
+        ctx.strokeStyle = 'rgba(248, 250, 252, 0.25)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(0, GROUND_Y);
+        ctx.lineTo(W, GROUND_Y);
+        ctx.stroke();
+
+        // player
+        ctx.font = '28px sans-serif';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillText('🦖', player.x, player.y + player.h);
+
+        // obstacles
+        for (var i = 0; i < obstacles.length; i++) {
+          var o = obstacles[i];
+          ctx.font = (o.h + 4) + 'px sans-serif';
+          ctx.fillText(o.emoji, o.x, o.y + o.h);
+        }
+
+        if (state === 'ready') {
+          ctx.font = '28px sans-serif';
+          ctx.fillText('🦖', player.x, GROUND_Y);
+        }
+      }
+
+      function loop(ts) {
+        if (state !== 'playing') {
+          draw();
+          return;
+        }
+        if (lastTime === null) lastTime = ts;
+        var dt = Math.min((ts - lastTime) / 1000, 0.05);
+        lastTime = ts;
+
+        update(dt);
+        draw();
+
+        requestAnimationFrame(loop);
+      }
+
+      draw();
+
+      window.addEventListener('keydown', function (e) {
+        if (e.code === 'Space' || e.code === 'ArrowUp') {
+          e.preventDefault();
+          jump();
+        }
+      });
+      canvas.addEventListener('mousedown', jump);
+      canvas.addEventListener('touchstart', function (e) { e.preventDefault(); jump(); }, { passive: false });
+    })();
 
     window.addEventListener('online', function() {
       document.getElementById('retrySection').innerHTML = '<div class="online-notice">' +
