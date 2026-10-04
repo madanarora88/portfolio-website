@@ -24,10 +24,10 @@ export const caseStudies: CaseStudy[] = [
     company: "JPMorgan Chase",
     role: "VP Product",
     timeline: "2025-Present",
-    summary: "I'm leading the channel strategy for total rewards at JPMorgan: health, enrollment, wellness, and comp across web, mobile, and conversational AI for 350K employees. The chatbot is the newest of the three, powered by NLP and LLMs, and the bar for it is 100% call center deflection and 99% model accuracy, but the real measure is whether people trust it enough to actually use it.",
+    summary: "I'm leading the channel strategy for total rewards at JPMorgan: health, enrollment, wellness, and comp across web, mobile, and conversational AI for 350K employees. The chatbot is the newest of the three, powered by NLP and LLMs, and the bar for it is 85% adoption and engagement and 99% model accuracy, but the real measure is whether people trust it enough to actually use it.",
     tags: ["AI", "Benefits", "Privacy", "Enterprise", "Conversational AI"],
     metrics: [
-      { label: "Call center deflection", value: "100%" },
+      { label: "Adoption & engagement", value: "85%" },
       { label: "Benefits experience", value: "Multiple portals → one place" },
       { label: "Model accuracy", value: "99%" },
       { label: "Employees in scope", value: "350K" }
@@ -61,12 +61,12 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Outcome",
         subtitle: "The measurable impact",
-        content: "350K employees in scope. 100% call center deflection on the questions the chatbot handles. Enrollment completion and time-to-answer improve because the job is one coherent experience across web, mobile, and chat instead of multiple disconnected portals. Model accuracy is 99%. That number matters, but it is not the product: the product is whether people trust it enough to opt in, keep coming back, and stop picking up the phone about health and money."
+        content: "350K employees in scope. 85% adoption and engagement across the channels we've launched. Enrollment completion and time-to-answer improve because the job is one coherent experience across web, mobile, and chat instead of multiple disconnected portals. Model accuracy is 99%. That number matters, but it is not the product: the product is whether people trust it enough to opt in, keep coming back, and stop picking up the phone about health and money."
       },
       {
         title: "Lessons",
         subtitle: "What this work is already teaching",
-        content: "In benefits, a wrong answer is worse than no answer, which is why 99% accuracy is a requirement, not a slide. Containment (100% deflection) only counts if the answer is grounded. The right channel for the right moment beats one interface trying to do everything; conversational AI works alongside web and mobile, not instead of them. Trust, opt-in, and CSAT are the real scoreboard, not model accuracy alone. The PM job is orchestration across privacy, engineering, content, and comms, not prompt writing."
+        content: "In benefits, a wrong answer is worse than no answer, which is why 99% accuracy is a requirement, not a slide. Adoption (85%) only counts if people keep coming back, not just try it once. The right channel for the right moment beats one interface trying to do everything; conversational AI works alongside web and mobile, not instead of them. Trust, opt-in, and CSAT are the real scoreboard, not model accuracy alone. The PM job is orchestration across privacy, engineering, content, and comms, not prompt writing."
       }
     ]
   },
