@@ -2,14 +2,10 @@ export const profile = {
   name: "Madan Arora",
   title: "AI Product Manager",
   tagline: "I design AI products that feel like magic",
-  /** One sharp hero line (who you are + what you do) */
-  heroLine: "VP of Product at JPMorgan Chase — I ship AI products that scale to millions.",
   /** Keyword strip under hero (e.g. AI • 0→1 • Enterprise) */
   keywordStrip: "AI • 0→1 • Enterprise • 2M+ Users",
   /** "What I'm up to now" — current focus in one sentence */
   whatsUpNow: "At JPMorgan, leading conversational AI for personalized benefits so 350K employees can securely get health, enrollment, wellness, and rewards answers.",
-  /** Philosophy quote for hero or dedicated section */
-  philosophyQuote: "I treat AI as a product problem, not a tech demo.",
   bio: "VP of Product at JPMorgan Chase with 13+ years of experience building products that scale to 2M+ users. Known for exceptional product sense, AI transformation expertise, and driving $50M+ in revenue impact.",
   
   contact: {

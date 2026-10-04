@@ -21,9 +21,6 @@ const Home = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-light to-light/80 bg-clip-text text-transparent">
             {profile.name}
           </h1>
-          <p className="text-xl md:text-2xl text-light/90 mb-3 font-medium">
-            {profile.heroLine}
-          </p>
           <p className="text-primary font-semibold mb-2 tracking-wide">
             {profile.keywordStrip}
           </p>
@@ -47,11 +44,6 @@ const Home = () => {
               className="w-32 h-32 sm:w-36 sm:h-36 rounded-full mx-auto border-4 border-primary/20 object-cover object-[center_15%]"
             />
           </motion.div>
-          {profile.philosophyQuote && (
-            <p className="text-light/80 italic max-w-xl mx-auto mb-8 text-lg">
-              &ldquo;{profile.philosophyQuote}&rdquo;
-            </p>
-          )}
           {/* One-line stats (S2) */}
           <p className="text-light/60 text-sm mb-8">
             {profile.stats.yearsExperience} years · {profile.stats.dailyActiveUsers} users · {profile.stats.revenueImpact} revenue impact · {profile.stats.costSavings} savings
@@ -321,17 +313,6 @@ const Home = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Philosophy quote section (P2) */}
-      {profile.philosophyQuote && (
-        <section className="py-16 px-6 border-y border-light/10 bg-light/5">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xl md:text-2xl text-light/90 italic">
-              &ldquo;{profile.philosophyQuote}&rdquo;
-            </p>
           </div>
         </section>
       )}
