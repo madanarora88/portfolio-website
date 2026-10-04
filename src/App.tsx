@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import NotFound from './pages/NotFound'
 import TestError from './pages/TestError'
@@ -22,9 +23,12 @@ const Contact = lazy(() => import('./pages/Contact'))
 function App() {
   return (
     <ErrorBoundary>
+      <ThemeProvider>
       <Router>
       <GoogleAnalytics />
       <Routes>
+        {/* 404 + Tetris: full viewport, no chrome. Outside Layout so no header/footer renders. */}
+        <Route path="/test-error" element={<TestError />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/case-studies" element={<CaseStudies />} />
@@ -85,15 +89,13 @@ function App() {
             }
           />
         </Route>
-        {/* Test route for ErrorBoundary - visit /test-error to verify */}
-        <Route path="/test-error" element={<TestError />} />
-        {/* 404 Catch-all - outside Layout for full-screen game experience */}
         <Route path="*" element={<NotFound />} />
       </Routes>
         <CommandPalette />
         <AskAI />
         <Analytics />
       </Router>
+      </ThemeProvider>
     </ErrorBoundary>
   )
 }
