@@ -1,4 +1,4 @@
-const CACHE_NAME = 'madan-portfolio-v1'
+const CACHE_NAME = 'madan-portfolio-v2'
 const OFFLINE_URL = '/offline.html'
 
 // Files to cache for offline use
